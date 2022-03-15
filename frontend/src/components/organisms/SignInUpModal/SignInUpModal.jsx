@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import {
   LeftContainer,
+  Planet,
   RightContainer,
   SignContainer,
   Modal,
@@ -8,10 +9,13 @@ import {
   textButtonStyle,
 } from './styles';
 import { TextButton } from '../../atoms';
-import { SignForm } from '../../molecules';
+import { SignInfoForm, SignInForm, SignUpForm } from '../../molecules';
+import SignModeHook from './SignModeHook';
+import FindForm from '../FindForm';
 function SignInUpModal() {
   const [open, setOpen] = useState(false);
-
+  const signMode = SignModeHook();
+  console.log(signMode);
   const onSignForm = () => {
     document.body.style.overflow = 'hidden';
     setOpen(prev => !prev);
@@ -20,6 +24,7 @@ function SignInUpModal() {
   const closeSignForm = () => {
     document.body.style.overflow = 'unset';
     setOpen(prev => !prev);
+    signMode.onReset();
   };
   return (
     <>
@@ -29,9 +34,22 @@ function SignInUpModal() {
       <Modal isOpen={open}>
         <Xmark onClick={closeSignForm} />
         <SignContainer>
-          <LeftContainer />
+          <LeftContainer>
+            <Planet />
+          </LeftContainer>
           <RightContainer>
-            <SignForm />
+            {signMode.state.SIGN_IN && (
+              <SignInForm isOpen={open} modeDispatch={signMode} />
+            )}
+            {signMode.state.SIGN_UP && (
+              <SignUpForm isOpen={open} modeDispatch={signMode} />
+            )}
+            {signMode.state.SIGN_INFO && (
+              <SignInfoForm isOpen={open} modeDispatch={signMode} />
+            )}
+            {signMode.state.FIND_INFO && (
+              <FindForm isOpen={open} modeDispatch={signMode} />
+            )}
           </RightContainer>
         </SignContainer>
       </Modal>

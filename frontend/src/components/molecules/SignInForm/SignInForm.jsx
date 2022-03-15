@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Container,
   LogIn,
@@ -13,27 +13,43 @@ import {
   textButtonStyle2,
   textButtonStyle3,
   normalButtonStyle,
+  TextContainer,
 } from './styles';
 import { Input, NormalButton, TextButton } from '../../atoms';
 import { useInput } from '../../../Hooks';
+import propTypes from 'prop-types';
 
-function SignForm() {
+function SignInForm({ isOpen, modeDispatch }) {
   const idInput = useInput('');
   const pwInput = useInput('');
+  useEffect(() => {
+    if (!isOpen) {
+      idInput.onReset();
+      pwInput.onReset();
+    }
+  }, [isOpen]);
   return (
     <Container>
       <LogIn />
       <InputContainer>
         <Input Style={inputStyle} {...idInput} />
-        <PlaceHolder>아이디</PlaceHolder>
+        <PlaceHolder value={idInput.value}>아이디</PlaceHolder>
       </InputContainer>
       <InputContainer>
-        <Input Style={inputStyle} {...pwInput} />
-        <PlaceHolder>비밀번호</PlaceHolder>
+        <Input Style={inputStyle} {...pwInput} type="password" />
+        <PlaceHolder value={pwInput.value}> 비밀번호</PlaceHolder>
       </InputContainer>
       <NormalButton Style={normalButtonStyle}>로그인</NormalButton>
-      <TextButton Style={textButtonStyle}>Spin-off 회원가입</TextButton>
-      <TextButton Style={textButtonStyle2}>아이디/비밀번호 찾기</TextButton>
+      <TextContainer>
+        <TextButton Style={textButtonStyle} onClick={modeDispatch.onSignUp}>
+          Spin-off 회원가입
+        </TextButton>
+      </TextContainer>
+      <TextContainer>
+        <TextButton Style={textButtonStyle2} onClick={modeDispatch.onFindInfo}>
+          아이디/비밀번호 찾기
+        </TextButton>
+      </TextContainer>
       <NaverContainer>
         <Naver />
         <TextButton Style={textButtonStyle3}>
@@ -54,4 +70,8 @@ function SignForm() {
   );
 }
 
-export default SignForm;
+SignInForm.propTypes = {
+  isOpen: propTypes.bool,
+  modeDispatch: propTypes.object,
+};
+export default SignInForm;

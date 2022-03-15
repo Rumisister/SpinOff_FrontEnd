@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const InputArea = styled.input`
-  display: block;
+  display: ${props => props?.Style?.display};
   outline: 0;
   border: 0;
   resize: none;

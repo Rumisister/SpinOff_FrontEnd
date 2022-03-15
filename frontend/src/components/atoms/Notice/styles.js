@@ -5,10 +5,12 @@ const Icon = styled(Notice)`
   padding: 20px;
   cursor: pointer;
   fill: white;
+  width: 35px;
+  height: 35px;
   transition: 0.3s;
   &:hover {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     fill: #f9cf00;
     transition: 0.3s;
   }

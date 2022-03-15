@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
+  position: ${props => props?.Style?.position || ''};
+  left: ${props => props?.Style?.left || ''};
+  right: ${props => props?.Style?.right || ''};
+  top: ${props => props?.Style?.top || ''};
+  bottom: ${props => props?.Style?.bottom || ''};
   font-size: ${props => props?.Style?.fontSize || '16px'};
   font-weight: ${props => props?.Style?.fontWeight};
   padding: ${props => props?.Style?.padding};

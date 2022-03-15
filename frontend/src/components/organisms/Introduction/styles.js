@@ -4,7 +4,7 @@ const Container = styled.div`
   display: flex;
   width: 100%;
   min-width: 1000px;
-  height: 500px;
+  height: 600px;
   background: #000000;
 `;
 const SideContainer = styled.div`

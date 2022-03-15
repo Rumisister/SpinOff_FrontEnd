@@ -49,4 +49,20 @@ const RecommendMessage = styled.div`
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25),
     0px 4px 50px #000000;
 `;
-export { Container, ImageContainer, Image, Poster, RecommendMessage };
+const buttonStyle = {
+  background: '#F24860',
+  borderRadius: '20px',
+  color: 'white',
+  display: 'block',
+  margin: '20px auto',
+  padding: '10px 20px',
+  fontWeight: 'bold',
+};
+export {
+  Container,
+  ImageContainer,
+  Image,
+  Poster,
+  RecommendMessage,
+  buttonStyle,
+};

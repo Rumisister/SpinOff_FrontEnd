@@ -6,18 +6,9 @@ import {
   Image,
   Poster,
   RecommendMessage,
+  buttonStyle,
 } from './styled';
 import { Indicator } from '../../atoms';
-
-const buttonStyle = {
-  background: '#F24860',
-  borderRadius: '20px',
-  color: 'white',
-  display: 'block',
-  margin: '20px auto',
-  padding: '10px 20px',
-  fontWeight: 'bold',
-};
 
 function TodayDocent() {
   const [indicator, setIndicator] = useState('0');

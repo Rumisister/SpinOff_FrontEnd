@@ -5,7 +5,7 @@ const HeaderLeftContainer = styled.div`
   width: 25%;
   height: 100%;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
 `;
 
 const HeaderRightContainer = styled.div`
@@ -13,7 +13,7 @@ const HeaderRightContainer = styled.div`
   height: 100%;
   display: felx;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
 `;
 
 const LogoContainer = styled.div`
@@ -26,4 +26,18 @@ const LogoContainer = styled.div`
   background: #000000;
 `;
 
-export { LogoContainer, HeaderLeftContainer, HeaderRightContainer };
+const buttonStyle = {
+  fontSize: '20px',
+  fontWeight: 'bold',
+  margin: '0 0 0 50px',
+  color: 'white',
+  Hover: {
+    fontSize: '24px',
+  },
+};
+export {
+  LogoContainer,
+  HeaderLeftContainer,
+  HeaderRightContainer,
+  buttonStyle,
+};

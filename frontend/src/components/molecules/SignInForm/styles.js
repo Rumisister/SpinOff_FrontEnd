@@ -8,6 +8,7 @@ const Container = styled.div`
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  user-select: none;
 `;
 
 const LogIn = styled(login)`
@@ -33,6 +34,8 @@ const PlaceHolder = styled.span`
   opacity: 0.8;
   transition: 0.3s;
   user-select: none;
+  transform: ${props => (props?.value ? 'translate(0,-10px)' : '')};
+  font-size: ${props => (props?.value ? '14px' : '')};
 `;
 
 const Naver = styled(naver)`
@@ -62,14 +65,16 @@ const KakaoContainer = styled.div`
 const textButtonStyle = {
   color: '#A7A7A7',
   fontWeight: 'bold',
+  fontSize: '16px',
   textDecoration: 'underline',
-  margin: '15px auto 15px 10%',
+  margin: '15px auto',
 };
 const textButtonStyle2 = {
   color: '#F9CF00',
   fontWeight: 'bold',
+  fontSize: '16px',
   textDecoration: 'underline',
-  margin: '15px 10% 15px auto',
+  margin: '15px auto',
 };
 const textButtonStyle3 = {
   color: '#A7A7A7',
@@ -97,6 +102,13 @@ const inputStyle = {
     fontSize: '14px',
   },
 };
+const TextContainer = styled.div`
+  display: flex;
+  width: 50%;
+  align-items: center;
+  text-align: center;
+`;
+
 export {
   Container,
   LogIn,
@@ -111,4 +123,5 @@ export {
   textButtonStyle2,
   textButtonStyle3,
   normalButtonStyle,
+  TextContainer,
 };

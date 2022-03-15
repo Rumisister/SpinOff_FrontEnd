@@ -8,19 +8,9 @@ import {
   ImageHover,
   External,
   More,
+  buttonStyle,
 } from './styles';
 import { NormalButton } from '../../atoms';
-
-const buttonStyle = {
-  position: 'absolute',
-  right: '10px',
-  top: '10px',
-  background: 'white',
-  color: '#F24860',
-  fontWeight: 'bold',
-  borderRadius: '20px',
-  padding: '10px 15px',
-};
 
 function Post({ title, poster }) {
   return (

@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as xmark } from '../../../assets/images/xmark.svg';
+import { ReactComponent as planet } from '../../../assets/images/planet.svg';
 
 const Modal = styled.div`
   position: fixed;
@@ -21,7 +22,7 @@ const SignContainer = styled.div`
   width: 60%;
   min-width: 600px;
   left: max(20%, 200px);
-  height: 500px;
+  height: 550px;
 `;
 
 const LeftContainer = styled.div`
@@ -31,6 +32,11 @@ const LeftContainer = styled.div`
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
   border: 1px solid gray;
+`;
+
+const Planet = styled(planet)`
+  width: 100%;
+  height: 100%;
 `;
 
 const RightContainer = styled.div`
@@ -54,12 +60,12 @@ const Xmark = styled(xmark)`
 `;
 
 const textButtonStyle = {
-  fontSize: '24px',
+  fontSize: '20px',
   fontWeight: 'bold',
-  padding: '20px',
+  margin: '0 50px 0 0',
   color: 'white',
   Hover: {
-    fontSize: '28px',
+    fontSize: '24px',
   },
 };
 
@@ -67,6 +73,7 @@ export {
   Modal,
   SignContainer,
   LeftContainer,
+  Planet,
   RightContainer,
   textButtonStyle,
   Xmark,

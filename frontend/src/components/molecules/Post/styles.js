@@ -64,6 +64,16 @@ const More = styled(more)`
   padding: 5px;
 `;
 
+const buttonStyle = {
+  position: 'absolute',
+  right: '10px',
+  top: '10px',
+  background: 'white',
+  color: '#F24860',
+  fontWeight: 'bold',
+  borderRadius: '20px',
+  padding: '10px 15px',
+};
 export {
   PostContainer,
   PostCaption,
@@ -72,4 +82,5 @@ export {
   ImageHover,
   External,
   More,
+  buttonStyle,
 };

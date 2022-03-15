@@ -3,20 +3,11 @@ import {
   LogoContainer,
   HeaderLeftContainer,
   HeaderRightContainer,
+  buttonStyle,
 } from './styles';
 import { Notice, DM, Logo, Profile, TextButton } from '../../atoms';
 import { HeaderMenuModal } from '../../molecules';
 import { SignInUpModal } from '..';
-
-const buttonStyle = {
-  fontSize: '24px',
-  fontWeight: 'bold',
-  padding: '20px',
-  color: 'white',
-  Hover: {
-    fontSize: '28px',
-  },
-};
 
 function Header() {
   const isLoggin = true;
