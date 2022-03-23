@@ -1,9 +1,9 @@
 import { createAction } from '@reduxjs/toolkit';
 
-export const Toggle_Filter = 'ListFilter/Toggle_Filter';
-export const Discovery = 'ListFilter/Discovery';
-export const Following = 'ListFilter/Following';
+export const TOGGLE_FILTER = 'ListFilter/TOGGLE_FILTER';
+export const DISCOVERY = 'ListFilter/DISCOVERY';
+export const FOLLOWING = 'ListFilter/FOLLOWING';
 
-export const toggleFilter = createAction(Toggle_Filter);
-export const discovery = createAction(Discovery);
-export const following = createAction(Following);
+export const toggleFilter = createAction(TOGGLE_FILTER);
+export const discovery = createAction(DISCOVERY);
+export const following = createAction(FOLLOWING);

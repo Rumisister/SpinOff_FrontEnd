@@ -33,7 +33,7 @@ function FindInputForm({ isOpen, modeDispatch, idMode }) {
         </InputListContainer>
         <InputListContainer>
           <InputContainer>
-            <Input type="password" Style={inputStyle} {...emailInput} />
+            <Input Style={inputStyle} {...emailInput} />
             <PlaceHolder value={emailInput.value}>이메일 주소</PlaceHolder>
           </InputContainer>
         </InputListContainer>

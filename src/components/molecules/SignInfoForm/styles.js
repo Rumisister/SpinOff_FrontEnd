@@ -30,17 +30,15 @@ const InputListContainer = styled.div`
   align-items: center;
   margin: 10px 30px;
 `;
-const ExInputListContainer = styled(InputListContainer)`
-  margin: 10px 30px 5px 30px;
-`;
+
 const Explain = styled.div`
-  display: flex;
-  margin: 0 30px 15px 30px;
+  display: ${props => (props?.Error || props?.Explain ? 'flex' : 'none')};
+  color: ${props => (props?.Error ? '#f24860;' : '#808080')};
+  margin: -8px 30px 15px 30px;
 `;
 const Explanation = styled.div`
   width: 70%;
   margin: 0 0 0 auto;
-  color: #808080;
   font-size: 12px;
 `;
 const H1 = styled.div`
@@ -106,7 +104,6 @@ const normalButtonStyle = {
 export {
   Container,
   H1,
-  ExInputListContainer,
   InputListContainer,
   InputContainer,
   Span,

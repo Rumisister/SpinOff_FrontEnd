@@ -3,6 +3,7 @@ import propTypes from 'prop-types';
 import Button from './styles';
 
 function TextButton({ onClick, type, Style, children }) {
+  //console.log(onClick);
   return (
     <Button Style={Style} onClick={onClick} type={type}>
       {children}

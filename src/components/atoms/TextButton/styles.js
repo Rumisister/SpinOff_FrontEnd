@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 const Button = styled.button`
+  display: ${props => props?.Style?.display || ''};
   position: ${props => props?.Style?.position || ''};
   left: ${props => props?.Style?.left || ''};
   right: ${props => props?.Style?.right || ''};

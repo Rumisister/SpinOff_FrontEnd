@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from 'react';
-import { Magnifier, SearchBarContainer, SearchBarModal } from './styles';
+import propTypes from 'prop-types';
+import {
+  Magnifier,
+  SearchBarContainer,
+  SearchBarModal,
+  Contents,
+} from './styles';
 import { Input } from '../../atoms';
 import { useInput, useFocus } from '../../../Hooks';
 
-function SearchBar() {
+function SearchBar({ children }) {
   const inputStyle = {
     width: '100%',
     padding: '13px 15px',
@@ -28,7 +34,9 @@ function SearchBar() {
 
   return (
     <div ref={inputEl}>
-      <SearchBarModal focused={focused}>asd</SearchBarModal>
+      <SearchBarModal focused={focused}>
+        <Contents>{children}</Contents>
+      </SearchBarModal>
       <SearchBarContainer>
         <Magnifier />
         <Input Style={inputStyle} {...searchHook} onFocus={onFocus} />
@@ -37,4 +45,7 @@ function SearchBar() {
   );
 }
 
+SearchBar.propTypes = {
+  children: propTypes.array,
+};
 export default SearchBar;

@@ -18,16 +18,29 @@ import {
 import { Input, NormalButton, TextButton } from '../../atoms';
 import { useInput } from '../../../Hooks';
 import propTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { requestSignIn } from '../../../store/SignIn/action';
 
-function SignInForm({ isOpen, modeDispatch }) {
+function SignInForm({ modeDispatch }) {
+  const dispatch = useDispatch();
   const idInput = useInput('');
   const pwInput = useInput('');
+  const onSignIn = () => {
+    console.log(idInput);
+    console.log(pwInput);
+    dispatch(
+      requestSignIn({
+        id: idInput.value,
+        pw: pwInput.value,
+      }),
+    );
+  };
   useEffect(() => {
-    if (!isOpen) {
+    return () => {
       idInput.onReset();
       pwInput.onReset();
-    }
-  }, [isOpen]);
+    };
+  }, []);
   return (
     <Container>
       <LogIn />
@@ -39,7 +52,9 @@ function SignInForm({ isOpen, modeDispatch }) {
         <Input Style={inputStyle} {...pwInput} type="password" />
         <PlaceHolder value={pwInput.value}> 비밀번호</PlaceHolder>
       </InputContainer>
-      <NormalButton Style={normalButtonStyle}>로그인</NormalButton>
+      <NormalButton Style={normalButtonStyle} onClick={onSignIn}>
+        로그인
+      </NormalButton>
       <TextContainer>
         <TextButton Style={textButtonStyle} onClick={modeDispatch.onSignUp}>
           Spin-off 회원가입

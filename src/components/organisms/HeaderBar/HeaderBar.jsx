@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import {
   LogoContainer,
   HeaderLeftContainer,
@@ -9,8 +10,7 @@ import { Notice, DM, Logo, Profile, TextButton } from '../../atoms';
 import { HeaderMenuModal } from '../../molecules';
 import { SignInUpModal } from '..';
 
-function Header() {
-  const isLoggin = true;
+function HeaderBar({ isSignIn }) {
   return (
     <>
       <HeaderLeftContainer>
@@ -21,15 +21,15 @@ function Header() {
         <Logo />
       </LogoContainer>
       <HeaderRightContainer>
-        {isLoggin ? (
-          <>
-            <SignInUpModal />
-          </>
-        ) : (
+        {isSignIn ? (
           <>
             <HeaderMenuModal IconType={Notice} />
             <HeaderMenuModal IconType={DM} />
             <Profile padding="20px" />
+          </>
+        ) : (
+          <>
+            <SignInUpModal isSignIn={isSignIn} />
           </>
         )}
       </HeaderRightContainer>
@@ -37,4 +37,7 @@ function Header() {
   );
 }
 
-export default Header;
+HeaderBar.propTypes = {
+  isSignIn: propTypes.bool,
+};
+export default HeaderBar;

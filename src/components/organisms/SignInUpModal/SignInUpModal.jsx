@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import propTypes from 'prop-types';
 import {
   LeftContainer,
   Planet,
@@ -9,13 +10,20 @@ import {
   textButtonStyle,
 } from './styles';
 import { TextButton } from '../../atoms';
-import { SignInfoForm, SignInForm, SignUpForm } from '../../molecules';
+import {
+  SignInfoForm,
+  SignInForm,
+  SignUpForm,
+  SignUpSuccessForm,
+} from '../../molecules';
 import SignModeHook from './SignModeHook';
 import FindForm from '../FindForm';
-function SignInUpModal() {
+import { useDispatch } from 'react-redux';
+import { onReset } from '../../../store/SignUp/action';
+function SignInUpModal({ isSignIn }) {
   const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
   const signMode = SignModeHook();
-  console.log(signMode);
   const onSignForm = () => {
     document.body.style.overflow = 'hidden';
     setOpen(prev => !prev);
@@ -25,36 +33,48 @@ function SignInUpModal() {
     document.body.style.overflow = 'unset';
     setOpen(prev => !prev);
     signMode.onReset();
+    dispatch(onReset());
   };
   return (
     <>
       <TextButton onClick={onSignForm} Style={textButtonStyle}>
         로그인/회원가입
       </TextButton>
-      <Modal isOpen={open}>
-        <Xmark onClick={closeSignForm} />
-        <SignContainer>
-          <LeftContainer>
-            <Planet />
-          </LeftContainer>
-          <RightContainer>
-            {signMode.state.SIGN_IN && (
-              <SignInForm isOpen={open} modeDispatch={signMode} />
+      {open && !isSignIn ? (
+        <Modal isOpen={open}>
+          <Xmark onClick={closeSignForm} />
+          <SignContainer>
+            {signMode.state.SIGNUP_SUCCESS ? (
+              <SignUpSuccessForm />
+            ) : (
+              <>
+                <LeftContainer>
+                  <Planet />
+                </LeftContainer>
+                <RightContainer>
+                  {signMode.state.SIGN_IN ? (
+                    <SignInForm isOpen={open} modeDispatch={signMode} />
+                  ) : null}
+                  {signMode.state.SIGN_UP ? (
+                    <SignUpForm isOpen={open} modeDispatch={signMode} />
+                  ) : null}
+                  {signMode.state.SIGN_INFO ? (
+                    <SignInfoForm isOpen={open} modeDispatch={signMode} />
+                  ) : null}
+                  {signMode.state.FIND_INFO ? (
+                    <FindForm isOpen={open} modeDispatch={signMode} />
+                  ) : null}
+                </RightContainer>
+              </>
             )}
-            {signMode.state.SIGN_UP && (
-              <SignUpForm isOpen={open} modeDispatch={signMode} />
-            )}
-            {signMode.state.SIGN_INFO && (
-              <SignInfoForm isOpen={open} modeDispatch={signMode} />
-            )}
-            {signMode.state.FIND_INFO && (
-              <FindForm isOpen={open} modeDispatch={signMode} />
-            )}
-          </RightContainer>
-        </SignContainer>
-      </Modal>
+          </SignContainer>
+        </Modal>
+      ) : null}
     </>
   );
 }
 
+SignInUpModal.propTypes = {
+  isSignIn: propTypes.bool,
+};
 export default SignInUpModal;

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { Container } from './styles';
 import { Post } from '../../molecules';
@@ -49,11 +49,13 @@ function Masonry() {
     console.log(movies);
     setIsLoading(false);
   };
+  const chk = useRef();
   useEffect(() => {
     getMovies();
+    console.log(chk.current);
   }, []);
   return (
-    <Container>
+    <Container ref={chk}>
       {isLoading ? (
         <span>Loading... </span>
       ) : (

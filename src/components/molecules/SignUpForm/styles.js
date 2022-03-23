@@ -48,6 +48,17 @@ const BackLogin = styled.span`
   margin: 0 0 0 auto;
   color: #808080;
 `;
+const Explain = styled.div`
+  display: ${props => (props?.Error ? 'flex' : 'none')};
+  margin: -10px 30px 10px 30px;
+`;
+const Explanation = styled.div`
+  width: 70%;
+  margin: 0 0 0 auto;
+  color: #f24860;
+  font-size: 12px;
+  font-weight: bold;
+`;
 
 const inputStyle = {
   padding: '10px 15px',
@@ -97,6 +108,8 @@ export {
   H1,
   Span,
   InputContainer,
+  Explain,
+  Explanation,
   inputStyle,
   inputStyle2,
   textButtonStyle,

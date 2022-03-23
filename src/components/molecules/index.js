@@ -5,6 +5,11 @@ import SignInForm from './SignInForm';
 import SignUpForm from './SignUpForm';
 import SignInfoForm from './SignInfoForm';
 import FindInputForm from './FindInputForm';
+import RecentlySearch from './RecentlySearch';
+import PopularHashTag from './PopularHashTag';
+import CuratedMoive from './CuratedMovie';
+import Timer from './Timer';
+import SignUpSuccessForm from './SignUpSuccessForm';
 
 export {
   SearchBar,
@@ -14,4 +19,9 @@ export {
   SignUpForm,
   SignInfoForm,
   FindInputForm,
+  RecentlySearch,
+  PopularHashTag,
+  CuratedMoive,
+  Timer,
+  SignUpSuccessForm,
 };

@@ -6,6 +6,7 @@ const Container = styled.div`
   //column-count: 5;
   column-width: 200px;
   column-gap: 35px;
+  user-select: none;
 `;
 
 export { Container };

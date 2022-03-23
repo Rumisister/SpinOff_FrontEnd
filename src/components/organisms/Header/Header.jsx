@@ -1,15 +1,28 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { Container } from './styles';
-import { SearchBar } from '../../molecules';
+import {
+  CuratedMoive,
+  PopularHashTag,
+  RecentlySearch,
+  SearchBar,
+} from '../../molecules';
 import { HeaderBar } from '..';
 
-function Header() {
+function Header({ isSignIn }) {
   return (
     <Container>
-      <HeaderBar />
-      <SearchBar />
+      <HeaderBar isSignIn={isSignIn} />
+      <SearchBar>
+        <RecentlySearch />
+        <PopularHashTag />
+        <CuratedMoive />
+      </SearchBar>
     </Container>
   );
 }
 
+Header.propTypes = {
+  isSignIn: propTypes.bool,
+};
 export default Header;

@@ -6,6 +6,7 @@ const Container = styled.div`
   min-width: 1000px;
   height: 600px;
   background: #000000;
+  margin-top: 150px;
 `;
 const SideContainer = styled.div`
   display: flex;

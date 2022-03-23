@@ -18,6 +18,10 @@ const InputArea = styled.input`
     font-size: ${props => props?.Style?.focused?.fontSize};
     transition: 0.3s;
   }
+  &::placeholder {
+    font-style: italic;
+    opacity: 0.5;
+  }
 `;
 
 export default InputArea;

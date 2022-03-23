@@ -1,16 +1,16 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { Toggle_Filter, Discovery, Following } from './action';
+import { TOGGLE_FILTER, DISCOVERY, FOLLOWING } from './action';
 
 const initialState = 'discovery';
 
 const listFilterReducer = createReducer(initialState, {
-  [Toggle_Filter]: state => {
+  [TOGGLE_FILTER]: state => {
     return state === 'discovery' ? 'following' : 'discovery';
   },
-  [Discovery]: () => {
+  [DISCOVERY]: () => {
     return 'discovery';
   },
-  [Following]: () => {
+  [FOLLOWING]: () => {
     return 'following';
   },
 });

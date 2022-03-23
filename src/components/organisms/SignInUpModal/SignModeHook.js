@@ -5,6 +5,7 @@ const initialState = {
   SIGN_UP: false,
   SIGN_INFO: false,
   FIND_INFO: false,
+  SIGNUP_SUCCESS: false,
 };
 
 function reducer(state, action) {
@@ -28,6 +29,12 @@ function reducer(state, action) {
         [action.type]: true,
       };
     case 'FIND_INFO':
+      return {
+        ...initialState,
+        SIGN_IN: false,
+        [action.type]: true,
+      };
+    case 'SIGNUP_SUCCESS':
       return {
         ...initialState,
         SIGN_IN: false,
@@ -69,6 +76,11 @@ function SignModeHook() {
       type: 'FIND_INFO',
     });
   };
+  const onSuccessSignUp = () => {
+    dispatch({
+      type: 'SIGNUP_SUCCESS',
+    });
+  };
 
   return {
     state,
@@ -77,6 +89,7 @@ function SignModeHook() {
     onSignUp,
     onSignInfo,
     onFindInfo,
+    onSuccessSignUp,
     onReset,
   };
 }

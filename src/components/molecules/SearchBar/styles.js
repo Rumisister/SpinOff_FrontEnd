@@ -27,12 +27,28 @@ const SearchBarContainer = styled(Common)`
 const SearchBarModal = styled(Common)`
   //display: ${props => (props.focused ? '' : 'none')};
   visibility: ${props => (props?.focused ? 'visible' : 'hidden')};
-  opacity: ${props => (props?.focused ? '0.9' : '0')};
+  opacity: ${props => (props?.focused ? '1' : '0')};
   transition: 0.3s;
   top: 148px;
-  height: 500px;
+  max-height: 580px;
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
-  background: #202020;
+  background: rgba(32, 32, 32, 0.9);
+  overflow: scroll;
 `;
-export { Magnifier, SearchBarContainer, SearchBarModal };
+const Contents = styled.div`
+  padding: 30px;
+  user-select: none;
+`;
+const SearchHistory = styled.div``;
+const PopHashTag = styled.div``;
+const CuratedMovie = styled.div``;
+export {
+  Magnifier,
+  SearchBarContainer,
+  SearchBarModal,
+  Contents,
+  SearchHistory,
+  PopHashTag,
+  CuratedMovie,
+};
