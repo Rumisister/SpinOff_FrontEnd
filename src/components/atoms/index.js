@@ -6,6 +6,7 @@ import Input from './Input';
 import TextButton from './TextButton';
 import Indicator from './Indicator';
 import NormalButton from './NormalButton';
+import HideMessage from './HideMessage';
 
 export {
   Notice,
@@ -16,4 +17,5 @@ export {
   TextButton,
   Indicator,
   NormalButton,
+  HideMessage,
 };

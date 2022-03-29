@@ -5,16 +5,18 @@ import { ReactComponent as kakao } from '../../../assets/images/kakao.svg';
 
 const Container = styled.div`
   margin-top: auto;
-  display: flex;
-  flex-wrap: wrap;
   width: 100%;
   user-select: none;
 `;
 
+const LogInContainer = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 10px 30px;
+`;
 const LogIn = styled(login)`
   margin: 20px auto;
 `;
-
 const InputContainer = styled.div`
   position: relative;
   border: 1px solid #f24860;
@@ -22,6 +24,14 @@ const InputContainer = styled.div`
   height: 50px;
   margin: 5px auto;
   border-radius: 50px;
+  box-sizing: border-box;
+`;
+const ContentContainer = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  width: 80%;
+  margin: 5px auto;
   box-sizing: border-box;
 `;
 
@@ -67,14 +77,12 @@ const textButtonStyle = {
   fontWeight: 'bold',
   fontSize: '16px',
   textDecoration: 'underline',
-  margin: '15px auto',
+  margin: '15px 0',
 };
 const textButtonStyle2 = {
+  ...textButtonStyle,
+  margin: '0 0 0 auto',
   color: '#F9CF00',
-  fontWeight: 'bold',
-  fontSize: '16px',
-  textDecoration: 'underline',
-  margin: '15px auto',
 };
 const textButtonStyle3 = {
   color: '#A7A7A7',
@@ -86,7 +94,7 @@ const normalButtonStyle = {
   fontWeight: 'bold',
   fontSize: '20px',
   background: '#F9CF00',
-  width: '80%',
+  width: '100%',
   height: '50px',
   padding: '15px 0',
   borderRadius: '50px',
@@ -101,6 +109,11 @@ const inputStyle = {
     transform: 'translate(0,-10px)',
     fontSize: '14px',
   },
+  InputContainer: {
+    width: '80%',
+    height: '50px',
+    margin: '5px auto',
+  },
 };
 const TextContainer = styled.div`
   display: flex;
@@ -111,8 +124,10 @@ const TextContainer = styled.div`
 
 export {
   Container,
+  LogInContainer,
   LogIn,
   InputContainer,
+  ContentContainer,
   PlaceHolder,
   Naver,
   Kakao,

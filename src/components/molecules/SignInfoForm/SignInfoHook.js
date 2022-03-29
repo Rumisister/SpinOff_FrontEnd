@@ -63,10 +63,13 @@ function SignInfoHook() {
     const { name, value } = e.target;
     if (name === 'id') {
       reduxDispatch(dupCheckNeeded('id'));
+      if (value.length > 12) return;
     }
     if (name === 'nickName') {
       reduxDispatch(dupCheckNeeded('nick'));
+      if (value.length > 8) return;
     }
+    if (name === 'pw' && value.length > 100) return;
     dispatch({
       type: 'CHANGE_INPUT',
       name,

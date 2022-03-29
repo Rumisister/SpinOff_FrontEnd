@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import propTypes from 'prop-types';
 import {
   LeftContainer,
   Planet,
@@ -10,17 +9,13 @@ import {
   textButtonStyle,
 } from './styles';
 import { TextButton } from '../../atoms';
-import {
-  SignInfoForm,
-  SignInForm,
-  SignUpForm,
-  SignUpSuccessForm,
-} from '../../molecules';
+import { SignInfoForm, SignInForm, SignUpSuccessForm } from '../../molecules';
+import { SignUpForm } from '..';
 import SignModeHook from './SignModeHook';
 import FindForm from '../FindForm';
 import { useDispatch } from 'react-redux';
 import { onReset } from '../../../store/SignUp/action';
-function SignInUpModal({ isSignIn }) {
+function SignInUpModal() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const signMode = SignModeHook();
@@ -40,7 +35,7 @@ function SignInUpModal({ isSignIn }) {
       <TextButton onClick={onSignForm} Style={textButtonStyle}>
         로그인/회원가입
       </TextButton>
-      {open && !isSignIn ? (
+      {open ? (
         <Modal isOpen={open}>
           <Xmark onClick={closeSignForm} />
           <SignContainer>
@@ -74,7 +69,4 @@ function SignInUpModal({ isSignIn }) {
   );
 }
 
-SignInUpModal.propTypes = {
-  isSignIn: propTypes.bool,
-};
 export default SignInUpModal;

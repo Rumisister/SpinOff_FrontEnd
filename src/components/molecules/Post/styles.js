@@ -72,7 +72,8 @@ const buttonStyle = {
   color: '#F24860',
   fontWeight: 'bold',
   borderRadius: '20px',
-  padding: '10px 15px',
+  padding: '8px 13px',
+  fontSize: '17px',
 };
 export {
   PostContainer,

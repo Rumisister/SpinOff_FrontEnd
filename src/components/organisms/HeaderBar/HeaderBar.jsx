@@ -9,8 +9,11 @@ import {
 import { Notice, DM, Logo, Profile, TextButton } from '../../atoms';
 import { HeaderMenuModal } from '../../molecules';
 import { SignInUpModal } from '..';
+import { useDispatch } from 'react-redux';
+import { DEL_TOKEN } from '../../../store/Auth/action';
 
 function HeaderBar({ isSignIn }) {
+  const dispatch = useDispatch();
   return (
     <>
       <HeaderLeftContainer>
@@ -25,11 +28,14 @@ function HeaderBar({ isSignIn }) {
           <>
             <HeaderMenuModal IconType={Notice} />
             <HeaderMenuModal IconType={DM} />
-            <Profile padding="20px" />
+            <Profile
+              onClick={() => dispatch({ type: DEL_TOKEN })}
+              padding="20px"
+            />
           </>
         ) : (
           <>
-            <SignInUpModal isSignIn={isSignIn} />
+            <SignInUpModal />
           </>
         )}
       </HeaderRightContainer>

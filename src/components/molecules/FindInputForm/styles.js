@@ -33,6 +33,11 @@ const PlaceHolder = styled.span`
   font-size: ${props => (props?.value ? '14px' : '')};
 `;
 
+const FindResult = styled.div`
+  margin: auto;
+  text-align: center;
+  font-size: 24px;
+`;
 const inputStyle = {
   padding: '20px 20px 10px 20px',
   backGround: 'transparent',
@@ -61,4 +66,5 @@ export {
   inputStyle,
   normalButtonStyle,
   PlaceHolder,
+  FindResult,
 };

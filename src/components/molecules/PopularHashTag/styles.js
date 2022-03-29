@@ -3,7 +3,7 @@ import { ReactComponent as hashTag } from '../../../assets/images/hashTag.svg';
 import img from '../../../assets/images/tag.png';
 
 const Container = styled.div`
-  margin: 20px 0 20px 0;
+  margin: 30px 0 15px 0;
 `;
 
 const Title = styled.div`
@@ -21,7 +21,7 @@ const TagBox = styled.div`
   justify-content: center;
   flex-wrap: wrap;
   margin-right: 20px;
-  margin-top: 10px;
+  margin-bottom: 15px;
   background: url(${img}) no-repeat;
   background-size: cover;
 `;
@@ -37,7 +37,7 @@ const TagText = styled.div`
   color: #292929;
   font-size: 16px;
   font-weight: bold;
-  margin: 0 25px 0 10px;
+  margin: 0 25px 0 13px;
 `;
 const Contents = styled.div`
   display: flex;

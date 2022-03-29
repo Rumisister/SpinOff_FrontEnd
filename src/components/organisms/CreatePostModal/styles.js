@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ReactComponent as xmark } from '../../../assets/images/xmark.svg';
-import { ReactComponent as planet } from '../../../assets/images/planet.svg';
+import { ReactComponent as create } from '../../../assets/images/create.svg';
 
 const Modal = styled.div`
   position: fixed;
@@ -36,14 +36,6 @@ const LeftContainer = styled.div`
   border: 1px solid gray;
 `;
 
-const Planet = styled(planet)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-`;
-
 const RightContainer = styled.div`
   display: flex;
   width: 50%;
@@ -64,6 +56,15 @@ const Xmark = styled(xmark)`
   right: 15%;
 `;
 
+const CreatePost = styled(create)`
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  &:hover {
+    fill: blue;
+  }
+`;
+
 const textButtonStyle = {
   fontSize: '20px',
   fontWeight: 'bold',
@@ -78,8 +79,8 @@ export {
   Modal,
   SignContainer,
   LeftContainer,
-  Planet,
   RightContainer,
+  CreatePost,
   textButtonStyle,
   Xmark,
 };

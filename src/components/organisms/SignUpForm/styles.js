@@ -6,7 +6,7 @@ const Container = styled.div`
   user-select: none;
 `;
 
-const InputListContainer = styled.div`
+const SubmitBtnContainer = styled.div`
   display: flex;
   align-items: center;
   margin: 10px 30px;
@@ -18,21 +18,6 @@ const H1 = styled.div`
   font-size: 30px;
   font-weight: bold;
   margin: auto 5px 40px 30px;
-`;
-
-const Span = styled.span`
-  color: #808080;
-  font-size: 20;
-  font-weight: bold;
-`;
-const InputContainer = styled.div`
-  position: relative;
-  border: 1px solid #f24860;
-  width: 75%;
-  height: 36px;
-  margin: 0 0 0 auto;
-  border-radius: 50px;
-  box-sizing: border-box;
 `;
 
 const Ul = styled.ul`
@@ -48,29 +33,21 @@ const BackLogin = styled.span`
   margin: 0 0 0 auto;
   color: #808080;
 `;
-const Explain = styled.div`
-  display: ${props => (props?.Error ? 'flex' : 'none')};
-  margin: -10px 30px 10px 30px;
-`;
-const Explanation = styled.div`
-  width: 70%;
-  margin: 0 0 0 auto;
-  color: #f24860;
-  font-size: 12px;
-  font-weight: bold;
-`;
 
 const inputStyle = {
   padding: '10px 15px',
   backGround: 'transparent',
   width: '100%',
   fontSize: '14px',
+  InputContainer: {
+    width: '75%',
+    height: '36px',
+    margin: '0 0 0 auto',
+  },
 };
 const inputStyle2 = {
-  padding: '10px 15px',
-  backGround: 'transparent',
+  ...inputStyle,
   width: '70%',
-  fontSize: '14px',
 };
 
 const textButtonStyle = {
@@ -80,12 +57,6 @@ const textButtonStyle = {
   color: '#808080',
   fontSize: '15px',
   fontWeight: 'bold',
-};
-const textButtonStyle2 = {
-  color: '#F24860',
-  fontSize: '14px',
-  fontWeight: 'bold',
-  textDecoration: 'underline',
 };
 const textButtonStyle3 = {
   color: '#0095F6',
@@ -104,19 +75,14 @@ const normalButtonStyle = {
 };
 export {
   Container,
-  InputListContainer,
   H1,
-  Span,
-  InputContainer,
-  Explain,
-  Explanation,
   inputStyle,
-  inputStyle2,
   textButtonStyle,
-  textButtonStyle2,
-  textButtonStyle3,
-  normalButtonStyle,
-  BackLogin,
+  inputStyle2,
   Ul,
   Li,
+  normalButtonStyle,
+  textButtonStyle3,
+  BackLogin,
+  SubmitBtnContainer,
 };

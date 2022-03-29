@@ -35,7 +35,8 @@ function* handleSignIn(action) {
       payload: { token, refreshToken },
     });
   } catch (e) {
-    console.log(e);
+    console.log(e.response);
+    console.log('사가 에러');
     yield put({ type: FAILED_SIGNIN, payload: { error: e } });
   }
 }

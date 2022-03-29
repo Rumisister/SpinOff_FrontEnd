@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import {
   Container,
   LogIn,
-  InputContainer,
   PlaceHolder,
   Naver,
   Kakao,
@@ -13,18 +12,29 @@ import {
   textButtonStyle2,
   textButtonStyle3,
   normalButtonStyle,
-  TextContainer,
+  ContentContainer,
+  InputContainer,
 } from './styles';
 import { Input, NormalButton, TextButton } from '../../atoms';
 import { useInput } from '../../../Hooks';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { requestSignIn } from '../../../store/SignIn/action';
+//import { axios } from '../../../api';
+
+const idValidator = id => {
+  if (id.length > 12) return false;
+  return true;
+};
+const pwValidator = pw => {
+  if (pw.length > 100) return false;
+  return true;
+};
 
 function SignInForm({ modeDispatch }) {
   const dispatch = useDispatch();
-  const idInput = useInput('');
-  const pwInput = useInput('');
+  const idInput = useInput('', idValidator);
+  const pwInput = useInput('', pwValidator);
   const onSignIn = () => {
     console.log(idInput);
     console.log(pwInput);
@@ -43,7 +53,9 @@ function SignInForm({ modeDispatch }) {
   }, []);
   return (
     <Container>
-      <LogIn />
+      <ContentContainer>
+        <LogIn />
+      </ContentContainer>
       <InputContainer>
         <Input Style={inputStyle} {...idInput} />
         <PlaceHolder value={idInput.value}>아이디</PlaceHolder>
@@ -52,35 +64,42 @@ function SignInForm({ modeDispatch }) {
         <Input Style={inputStyle} {...pwInput} type="password" />
         <PlaceHolder value={pwInput.value}> 비밀번호</PlaceHolder>
       </InputContainer>
-      <NormalButton Style={normalButtonStyle} onClick={onSignIn}>
-        로그인
-      </NormalButton>
-      <TextContainer>
+      <ContentContainer>
+        <NormalButton Style={normalButtonStyle} onClick={onSignIn}>
+          로그인
+        </NormalButton>
+      </ContentContainer>
+      <ContentContainer>
         <TextButton Style={textButtonStyle} onClick={modeDispatch.onSignUp}>
           Spin-off 회원가입
         </TextButton>
-      </TextContainer>
-      <TextContainer>
         <TextButton Style={textButtonStyle2} onClick={modeDispatch.onFindInfo}>
           아이디/비밀번호 찾기
         </TextButton>
-      </TextContainer>
-      <NaverContainer>
-        <Naver />
-        <TextButton Style={textButtonStyle3}>
-          네이버로
-          <br />
-          시작하기
-        </TextButton>
-      </NaverContainer>
-      <KakaoContainer>
-        <Kakao />
-        <TextButton Style={textButtonStyle3}>
-          카카오톡으로
-          <br />
-          시작하기
-        </TextButton>
-      </KakaoContainer>
+      </ContentContainer>
+      <ContentContainer>
+        <NaverContainer>
+          <Naver />
+          <TextButton Style={textButtonStyle3}>
+            네이버로
+            <br />
+            시작하기
+          </TextButton>
+        </NaverContainer>
+        <KakaoContainer
+          onClick={() =>
+            (window.location.href =
+              'http://ec2-3-35-60-247.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google')
+          }
+        >
+          <Kakao />
+          <TextButton Style={textButtonStyle3}>
+            카카오톡으로
+            <br />
+            시작하기
+          </TextButton>
+        </KakaoContainer>
+      </ContentContainer>
     </Container>
   );
 }
