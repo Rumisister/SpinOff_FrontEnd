@@ -26,14 +26,7 @@ const ImageContainer = styled.div`
     transition: 0.4s;
   }
 `;
-const PostImage = styled.img`
-  border-radius: 30px;
-  border: 0;
-  height: auto;
-  min-height: 150px;
-  max-width: 100%;
-  vertical-align: middle;
-`;
+
 const ImageHover = styled.div`
   position: absolute;
   visibility: hidden;
@@ -75,10 +68,19 @@ const buttonStyle = {
   padding: '8px 13px',
   fontSize: '17px',
 };
+
+const posterStyle = {
+  borderRadius: '30px',
+  border: '0',
+  height: 'auto',
+  minHeight: '150px',
+  maxWidth: '100%',
+  verticalAlign: 'middle',
+};
 export {
   PostContainer,
   PostCaption,
-  PostImage,
+  posterStyle,
   ImageContainer,
   ImageHover,
   External,

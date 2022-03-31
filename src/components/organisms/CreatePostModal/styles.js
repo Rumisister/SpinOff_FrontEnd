@@ -15,25 +15,28 @@ const Modal = styled.div`
   background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 `;
-const SignContainer = styled.div`
+const Container = styled.div`
   position: fixed;
   display: flex;
   top: 120px;
   width: 54%;
   min-width: 540px;
   left: max(23%, 230px);
-  height: 550px;
+  height: 580px;
   box-shadow: 0px 4px 10px 10px rgba(0, 0, 0, 0.25);
+  user-select: none;
 `;
 
 const LeftContainer = styled.div`
   position: relative;
   width: 50%;
   height: 100%;
-  background: black;
+  background: white;
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
-  border: 1px solid gray;
+  z-index: -1;
+  padding: 20px 10px 20px 20px;
+  box-sizing: border-box;
 `;
 
 const RightContainer = styled.div`
@@ -43,7 +46,6 @@ const RightContainer = styled.div`
   background: white;
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
-  border: 1px solid gray;
 `;
 
 const Xmark = styled(xmark)`
@@ -65,22 +67,42 @@ const CreatePost = styled(create)`
   }
 `;
 
-const textButtonStyle = {
-  fontSize: '20px',
+const NormalButtonStyle = {
+  position: 'absolute',
+  fontSize: '14px',
   fontWeight: 'bold',
-  margin: '0 50px 0 0',
   color: 'white',
-  Hover: {
-    fontSize: '24px',
-  },
+  borderBottomLeftRadius: '3px',
+  borderTopLeftRadius: '3px',
+  background: '#F24860',
+  width: '120px',
+  height: '30px',
+  left: '-110px',
+  top: '30px',
+  textAlign: 'start',
 };
 
+const NormalButtonStyle2 = {
+  position: 'absolute',
+  borderBottomRightRadius: '3px',
+  borderTopRightRadius: '3px',
+  fontSize: '14px',
+  fontWeight: 'bold',
+  color: 'white',
+  background: '#F24860',
+  bottom: '30px',
+  width: '80px',
+  right: '-80px',
+  height: '30px',
+  textAlign: 'center',
+};
 export {
-  Modal,
-  SignContainer,
-  LeftContainer,
-  RightContainer,
+  Container,
   CreatePost,
-  textButtonStyle,
+  LeftContainer,
+  Modal,
   Xmark,
+  NormalButtonStyle,
+  NormalButtonStyle2,
+  RightContainer,
 };

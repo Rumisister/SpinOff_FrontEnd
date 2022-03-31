@@ -7,6 +7,10 @@ const Button = styled.button`
   user-select: none;
   position: ${props => props?.Style?.position};
   border-radius: ${props => props?.Style?.borderRadius};
+  border-bottom-left-radius: ${props => props?.Style?.borderBottomLeftRadius};
+  border-top-left-radius: ${props => props?.Style?.borderTopLeftRadius};
+  border-bottom-right-radius: ${props => props?.Style?.borderBottomRightRadius};
+  border-top-right-radius: ${props => props?.Style?.borderTopRightRadius};
   width: ${props => props?.Style?.width};
   height: ${props => props?.Style?.height};
   background: ${props => props?.Style?.background};
@@ -21,6 +25,7 @@ const Button = styled.button`
   right: ${props => props?.Style?.right};
   bottom: ${props => props?.Style?.bottom};
   opacity: ${props => props?.Style?.opacity};
+  text-align: ${props => props?.Style?.textAlign};
 `;
 
 export default Button;

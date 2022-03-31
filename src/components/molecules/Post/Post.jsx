@@ -3,20 +3,20 @@ import propTypes from 'prop-types';
 import {
   PostContainer,
   PostCaption,
-  PostImage,
   ImageContainer,
   ImageHover,
   External,
   More,
   buttonStyle,
+  posterStyle,
 } from './styles';
-import { NormalButton } from '../../atoms';
+import { NormalButton, Poster } from '../../atoms';
 
 function Post({ title, poster }) {
   return (
     <PostContainer>
       <ImageContainer>
-        <PostImage src={poster} alt={title} />
+        <Poster Style={posterStyle} src={poster} alt={title} />
         <ImageHover>
           <NormalButton Style={buttonStyle}>저장</NormalButton>
           <External />

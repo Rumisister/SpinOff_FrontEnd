@@ -12,6 +12,9 @@ import SignUpSuccessForm from './SignUpSuccessForm';
 import ListIndicator from './ListIndicator';
 import TodayDocent from './TodayDocent';
 import InputForm from './InputForm';
+import InsertedPosterList from './InsertedPosterList';
+import CreatePostMainPoster from './CreatePostMainPoster';
+import CreatePostLeftSide from './CreatePostLeftSide';
 
 export {
   SearchBar,
@@ -28,4 +31,7 @@ export {
   ListIndicator,
   TodayDocent,
   InputForm,
+  InsertedPosterList,
+  CreatePostMainPoster,
+  CreatePostLeftSide,
 };

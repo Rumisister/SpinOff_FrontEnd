@@ -10,6 +10,8 @@ function Input({
   type,
   name,
   placeholder,
+  accept,
+  multiple,
 }) {
   return (
     <InputArea
@@ -20,6 +22,8 @@ function Input({
       type={type}
       name={name}
       placeholder={placeholder}
+      accept={accept}
+      multiple={multiple}
     />
   );
 }
@@ -32,6 +36,8 @@ Input.propTypes = {
   type: propTypes.string,
   name: propTypes.string,
   placeholder: propTypes.string,
+  accept: propTypes.string,
+  multiple: propTypes.bool,
 };
 
 export default Input;

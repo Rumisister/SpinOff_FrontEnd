@@ -30,11 +30,12 @@ const ImageContainer = styled.div`
   border: 4px solid #88333f;
 `;
 
-const Poster = styled.img`
-  width: 80px;
-  height: 100px;
-  vertical-align: middle;
-`;
+const posterStyle = {
+  width: '80px',
+  height: '100px',
+  objectFit: 'cover',
+  verticalAlign: 'middle',
+};
 const MovieTitle = styled.div`
   color: white;
   font-weight: bold;
@@ -47,6 +48,6 @@ export {
   Contents,
   ContentContainer,
   ImageContainer,
-  Poster,
+  posterStyle,
   MovieTitle,
 };

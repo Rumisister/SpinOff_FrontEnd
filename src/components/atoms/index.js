@@ -7,6 +7,7 @@ import TextButton from './TextButton';
 import Indicator from './Indicator';
 import NormalButton from './NormalButton';
 import HideMessage from './HideMessage';
+import Poster from './Poster';
 
 export {
   Notice,
@@ -18,4 +19,5 @@ export {
   Indicator,
   NormalButton,
   HideMessage,
+  Poster,
 };
