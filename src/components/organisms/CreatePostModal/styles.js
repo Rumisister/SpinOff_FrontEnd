@@ -27,27 +27,6 @@ const Container = styled.div`
   user-select: none;
 `;
 
-const LeftContainer = styled.div`
-  position: relative;
-  width: 50%;
-  height: 100%;
-  background: white;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
-  z-index: -1;
-  padding: 20px 10px 20px 20px;
-  box-sizing: border-box;
-`;
-
-const RightContainer = styled.div`
-  display: flex;
-  width: 50%;
-  height: 100%;
-  background: white;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
-`;
-
 const Xmark = styled(xmark)`
   fill: white;
   position: absolute;
@@ -99,10 +78,8 @@ const NormalButtonStyle2 = {
 export {
   Container,
   CreatePost,
-  LeftContainer,
   Modal,
   Xmark,
   NormalButtonStyle,
   NormalButtonStyle2,
-  RightContainer,
 };

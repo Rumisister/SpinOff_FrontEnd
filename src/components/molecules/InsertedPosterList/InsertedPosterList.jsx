@@ -11,13 +11,20 @@ import {
   RightScroll,
 } from './styles';
 import { Poster } from '../../atoms';
+import { useDispatch } from 'react-redux';
+import { deleteImages } from '../../../store/Post/action';
 
-function InsertedPosterList({ fileList, onRemove }) {
+function InsertedPosterList({ fileList }) {
   const [rightMove, setRightMove] = useState(0);
   const [showScroll, setShowScroll] = useState(false);
+  const dispatch = useDispatch();
   const ContainerEl = useRef();
   const PosterListEl = useRef();
   const throttler = useRef(null);
+  const onFileRemove = id => {
+    console.log(id + '삭제');
+    dispatch(deleteImages([...fileList.filter(f => f.id !== id)]));
+  };
   const onResize = () => {
     if (throttler.current) return;
     throttler.current = setTimeout(() => {
@@ -37,7 +44,6 @@ function InsertedPosterList({ fileList, onRemove }) {
         : prev,
     );
   };
-  console.log(onRemove);
   useEffect(() => {
     window.addEventListener('resize', onResize);
     return () => {
@@ -66,7 +72,7 @@ function InsertedPosterList({ fileList, onRemove }) {
             <ImageContainer key={file.id}>
               <Poster Style={posterStyle} src={file.url} />
               <ImageHover>
-                <DeleteIcon onClick={() => onRemove(file.id)} />
+                <DeleteIcon onClick={() => onFileRemove(file.id)} />
               </ImageHover>
             </ImageContainer>
           ))}
@@ -78,7 +84,6 @@ function InsertedPosterList({ fileList, onRemove }) {
 
 InsertedPosterList.propTypes = {
   fileList: propTypes.array,
-  onRemove: propTypes.func,
 };
 
 export default InsertedPosterList;

@@ -6,8 +6,11 @@ export const axios = Axios.create({});
 
 axios.interceptors.request.use(config => {
   console.log(store?.getState()?.authReducer?.accessToken);
-  //config.headers['X-AUTH-TOKEN'] =
-  //store?.getState()?.authReducer?.access_token || '';
+  config.headers['X-AUTH-TOKEN'] =
+    store?.getState()?.authReducer?.access_token || '';
+  console.log(config.headers);
+  console.log(store?.getState()?.authReducer?.access_token);
+  console.log('악시오스');
   return config;
 });
 
@@ -20,13 +23,21 @@ axios.interceptors.response.use(
     const { config, response } = error || {};
     const { status } = response || {};
     if (status === 401) {
+      console.log('----------');
+      console.log('리프레쉬 토큰 재발급');
+      console.log('----------');
       const originRequest = config;
       const originRefreshToken = store?.getState()?.authReducer?.refresh_token;
       const originAccessToken = store?.getState()?.authReducer?.access_token;
+      console.log(originAccessToken);
+      console.log(originRefreshToken);
+      store.dispatch({
+        type: DEL_TOKEN,
+      });
       try {
         const {
           data: {
-            data: { token, refreshToken },
+            data: { accessToken, refreshToken },
           },
         } = await axios({
           method: 'patch',
@@ -36,9 +47,12 @@ axios.interceptors.response.use(
             refreshToken: originRefreshToken,
           },
         });
+        console.log('리프레시토큰 재발급 성공!!!');
+        console.log(accessToken);
+        console.log(refreshToken);
         store.dispatch({
           type: SET_TOKEN,
-          payload: { token, refreshToken },
+          payload: { token: accessToken, refreshToken },
         });
         return axios(originRequest);
       } catch (error) {

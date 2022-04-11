@@ -34,7 +34,22 @@ const SearchBarModal = styled(Common)`
   border-bottom-left-radius: 50px;
   border-bottom-right-radius: 50px;
   background: rgba(32, 32, 32, 0.9);
-  overflow: scroll;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: #e4e4e4;
+    border-radius: 100px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 100px;
+    background: rgba(32, 32, 32, 0.9);
+    background-clip: padding-box;
+    border: 2px solid transparent;
+    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
+  }
 `;
 const Contents = styled.div`
   padding: 30px;
@@ -43,6 +58,12 @@ const Contents = styled.div`
 const SearchHistory = styled.div``;
 const PopHashTag = styled.div``;
 const CuratedMovie = styled.div``;
+
+const inputStyle = {
+  width: '100%',
+  padding: '13px 15px',
+  backGround: 'transparent',
+};
 export {
   Magnifier,
   SearchBarContainer,
@@ -51,4 +72,5 @@ export {
   SearchHistory,
   PopHashTag,
   CuratedMovie,
+  inputStyle,
 };

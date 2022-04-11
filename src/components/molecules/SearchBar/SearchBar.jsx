@@ -5,16 +5,12 @@ import {
   SearchBarContainer,
   SearchBarModal,
   Contents,
+  inputStyle,
 } from './styles';
 import { Input } from '../../atoms';
 import { useInput, useFocus } from '../../../Hooks';
 
 function SearchBar({ children }) {
-  const inputStyle = {
-    width: '100%',
-    padding: '13px 15px',
-    backGround: 'transparent',
-  };
   const searchHook = useInput('');
   const { focused, setFocused, onFocus } = useFocus(false);
   const inputEl = useRef();

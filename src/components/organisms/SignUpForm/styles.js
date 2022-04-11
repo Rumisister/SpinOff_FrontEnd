@@ -33,7 +33,10 @@ const BackLogin = styled.span`
   margin: 0 0 0 auto;
   color: #808080;
 `;
-
+const placeholder = {
+  opacity: '0.5',
+  fontStyle: 'italic',
+};
 const inputStyle = {
   padding: '10px 15px',
   backGround: 'transparent',
@@ -43,6 +46,9 @@ const inputStyle = {
     width: '75%',
     height: '36px',
     margin: '0 0 0 auto',
+  },
+  placeholder: {
+    ...placeholder,
   },
 };
 const inputStyle2 = {

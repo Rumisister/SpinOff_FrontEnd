@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NormalButton } from '../../atoms';
-import { CreatePostLeftSide } from '../../molecules';
+import { CreatePostLeftSide, CreatePostRightSide } from '..';
 import {
   Container,
   CreatePost,
@@ -8,22 +8,29 @@ import {
   Xmark,
   NormalButtonStyle,
   NormalButtonStyle2,
-  RightContainer,
 } from './styles';
+import { useDispatch } from 'react-redux';
+import { onPostReset, requestCreatePost } from '../../../store/Post/action';
 
 function CreatePostModal() {
   const [open, setOpen] = useState(false);
-
+  const dispatch = useDispatch();
   const onCreateForm = () => {
     document.body.style.overflow = 'hidden';
     setOpen(prev => !prev);
   };
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (!open) {
+      dispatch(onPostReset());
+    }
+  }, [open]);
   const closeCreateForm = () => {
     document.body.style.overflow = 'unset';
     setOpen(prev => !prev);
   };
-
+  const onRequestPost = () => {
+    dispatch(requestCreatePost());
+  };
   return (
     <>
       <CreatePost onClick={onCreateForm} />
@@ -33,8 +40,10 @@ function CreatePostModal() {
           <Container>
             <NormalButton Style={NormalButtonStyle}>큐레이션 하기</NormalButton>
             <CreatePostLeftSide />
-            <RightContainer></RightContainer>
-            <NormalButton Style={NormalButtonStyle2}>작성완료</NormalButton>
+            <CreatePostRightSide />
+            <NormalButton Style={NormalButtonStyle2} onClick={onRequestPost}>
+              작성완료
+            </NormalButton>
           </Container>
         </Modal>
       ) : null}

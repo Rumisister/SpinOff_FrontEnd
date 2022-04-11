@@ -11,6 +11,7 @@ const Button = styled.button`
   border-top-left-radius: ${props => props?.Style?.borderTopLeftRadius};
   border-bottom-right-radius: ${props => props?.Style?.borderBottomRightRadius};
   border-top-right-radius: ${props => props?.Style?.borderTopRightRadius};
+  border: ${props => props?.Style?.border};
   width: ${props => props?.Style?.width};
   height: ${props => props?.Style?.height};
   background: ${props => props?.Style?.background};
@@ -26,6 +27,12 @@ const Button = styled.button`
   bottom: ${props => props?.Style?.bottom};
   opacity: ${props => props?.Style?.opacity};
   text-align: ${props => props?.Style?.textAlign};
+  transition: 0.3s;
+  &:hover {
+    color: ${props => props?.Style?.hover?.color};
+    background: ${props => props?.Style?.hover?.background};
+    transition: 0.3s;
+  }
 `;
 
 export default Button;

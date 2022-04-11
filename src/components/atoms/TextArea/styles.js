@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const InputArea = styled.input`
+const TextInput = styled.textarea`
   display: ${props => props?.Style?.display};
   outline: 0;
   border: 0;
@@ -13,6 +13,7 @@ const InputArea = styled.input`
   border-radius: ${props => props?.Style?.borderRadius};
   border: ${props => props?.Style?.border};
   width: ${props => props?.Style?.width};
+  height: ${props => props?.Style?.height};
   &:focus + span {
     transform: ${props => props?.Style?.focused?.transform};
     font-size: ${props => props?.Style?.focused?.fontSize};
@@ -26,4 +27,4 @@ const InputArea = styled.input`
   }
 `;
 
-export default InputArea;
+export default TextInput;

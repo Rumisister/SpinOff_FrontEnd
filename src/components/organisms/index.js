@@ -6,6 +6,8 @@ import FindForm from './FindForm';
 import SignUpForm from './SignUpForm';
 import Footer from './Footer';
 import CreatePostModal from './CreatePostModal';
+import CreatePostRightSide from './CreatePostRightSide';
+import CreatePostLeftSide from './CreatePostLeftSide';
 
 export {
   Header,
@@ -16,4 +18,6 @@ export {
   SignUpForm,
   Footer,
   CreatePostModal,
+  CreatePostRightSide,
+  CreatePostLeftSide,
 };

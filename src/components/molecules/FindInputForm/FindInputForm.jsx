@@ -43,6 +43,7 @@ function FindInputForm({ isOpen, modeDispatch, idMode }) {
     return res;
   };
   const requestFindPw = async id => {
+    console.log(id + '%%%%');
     const res = await axios({
       method: 'patch',
       url: '/api/sign/forget/account-pw',
@@ -73,7 +74,8 @@ function FindInputForm({ isOpen, modeDispatch, idMode }) {
     } catch (error) {
       setFindSuccess(false);
       setFindError(true);
-      console.log(error);
+      console.log('$$$');
+      console.log(error.response);
     }
   };
   return (

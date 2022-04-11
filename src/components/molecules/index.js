@@ -14,7 +14,14 @@ import TodayDocent from './TodayDocent';
 import InputForm from './InputForm';
 import InsertedPosterList from './InsertedPosterList';
 import CreatePostMainPoster from './CreatePostMainPoster';
-import CreatePostLeftSide from './CreatePostLeftSide';
+import CreatePostPublicList from './CreatePostPublicList';
+import CollectionList from './CollectionList';
+import Collection from './Collection';
+import NewCollection from './NewCollection';
+import GetCollectionList from './GetCollectionList';
+import NewCollectionTitle from './NewCollectionTitle';
+import NewCollectionInfo from './NewCollectionInfo';
+import CreatePostHasgTags from './CreatePostHashTags';
 
 export {
   SearchBar,
@@ -33,5 +40,12 @@ export {
   InputForm,
   InsertedPosterList,
   CreatePostMainPoster,
-  CreatePostLeftSide,
+  CreatePostPublicList,
+  CollectionList,
+  Collection,
+  NewCollection,
+  GetCollectionList,
+  NewCollectionTitle,
+  NewCollectionInfo,
+  CreatePostHasgTags,
 };
