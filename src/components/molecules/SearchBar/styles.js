@@ -17,7 +17,7 @@ const Common = styled.div`
 const SearchBarContainer = styled(Common)`
   display: flex;
   align-items: center;
-  top: 120px;
+  top: 122px;
   height: 56px;
   border-radius: 50px;
   background: rgba(255, 255, 255, 0.9);

@@ -25,6 +25,7 @@ function CreatePostRightSide() {
     }),
     shallowEqual,
   );
+  console.log(process.env.REACT_APP_API_URL);
   const dispatch = useDispatch();
   // const [postTitle, setPostTitle] = useState('');
   // const [postContents, setPostContents] = useState('');

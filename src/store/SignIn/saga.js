@@ -22,17 +22,18 @@ function* handleSignIn(action) {
     console.log(action.payload);
     const {
       data: {
-        data: { token, refreshToken },
+        data: { token, refreshToken, id },
       },
     } = yield call(requestSignIn, action.payload);
     console.log(token);
     console.log(refreshToken);
+    console.log(id);
     yield put({
       type: SUCCESS_SIGNIN,
     });
     yield put({
       type: SET_TOKEN,
-      payload: { token, refreshToken },
+      payload: { token, refreshToken, id },
     });
   } catch (e) {
     console.log(e.response);

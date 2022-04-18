@@ -9,10 +9,13 @@ import {
 } from './styles';
 import { Input } from '../../atoms';
 import { useInput, useFocus } from '../../../Hooks';
+import { useDispatch } from 'react-redux';
+import { SIGN_OUT } from '../../../store/Auth/action';
 
 function SearchBar({ children }) {
   const searchHook = useInput('');
   const { focused, setFocused, onFocus } = useFocus(false);
+  const dispatch = useDispatch();
   const inputEl = useRef();
   const handleClickedOutside = ({ target }) => {
     setFocused(prev => {
@@ -34,7 +37,13 @@ function SearchBar({ children }) {
         <Contents>{children}</Contents>
       </SearchBarModal>
       <SearchBarContainer>
-        <Magnifier />
+        <Magnifier
+          onClick={() =>
+            dispatch({
+              type: SIGN_OUT,
+            })
+          }
+        />
         <Input Style={inputStyle} {...searchHook} onFocus={onFocus} />
       </SearchBarContainer>
     </div>

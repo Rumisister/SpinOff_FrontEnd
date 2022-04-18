@@ -1,5 +1,5 @@
 import React from 'react';
-import { ListIndicator, TodayDocent } from '../../molecules';
+import { ListIndicator } from '../../molecules';
 
 import { Container, SideContainer } from './styles';
 
@@ -9,10 +9,8 @@ function Introduction() {
       <SideContainer>
         <ListIndicator />
       </SideContainer>
-      <TodayDocent />
-      <SideContainer />
     </Container>
   );
 }
 
-export default Introduction;
+export default React.memo(Introduction);

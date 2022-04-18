@@ -8,6 +8,8 @@ import Footer from './Footer';
 import CreatePostModal from './CreatePostModal';
 import CreatePostRightSide from './CreatePostRightSide';
 import CreatePostLeftSide from './CreatePostLeftSide';
+import MyPageInfo from './MyPageInfo';
+import MyPageInfoAbout from '../molecules/MyPageInfoAbout';
 
 export {
   Header,
@@ -20,4 +22,6 @@ export {
   CreatePostModal,
   CreatePostRightSide,
   CreatePostLeftSide,
+  MyPageInfo,
+  MyPageInfoAbout,
 };

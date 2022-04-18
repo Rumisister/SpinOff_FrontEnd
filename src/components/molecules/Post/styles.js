@@ -4,12 +4,12 @@ import { ReactComponent as more } from '../../../assets/images/more.svg';
 
 const PostContainer = styled.figure`
   display: inline-block;
+  position: absolute;
   background: transparent;
   //border: 1px solid rgba(0, 0, 0, 0.2);
   width: 200px;
   margin: 0;
   margin-bottom: 20px;
-  padding: 10px;
   border-radius: 30px;
   box-shadow: rgba(50, 50, 93, 0.25);
 `;

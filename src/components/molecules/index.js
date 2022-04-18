@@ -22,6 +22,8 @@ import GetCollectionList from './GetCollectionList';
 import NewCollectionTitle from './NewCollectionTitle';
 import NewCollectionInfo from './NewCollectionInfo';
 import CreatePostHasgTags from './CreatePostHashTags';
+import MyPageInfoPoster from './MyPageInfoPoster';
+import MyPageInfoAbout from './MyPageInfoAbout';
 
 export {
   SearchBar,
@@ -48,4 +50,6 @@ export {
   NewCollectionTitle,
   NewCollectionInfo,
   CreatePostHasgTags,
+  MyPageInfoPoster,
+  MyPageInfoAbout,
 };

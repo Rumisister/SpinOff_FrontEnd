@@ -18,7 +18,6 @@ const Button = styled.button`
   cursor: pointer;
   border: 0;
   transition: 0.3s;
-  user-select: none;
   &:hover {
     font-size: ${props => props?.Style?.Hover?.fontSize};
     transition: 0.3s;

@@ -78,7 +78,11 @@ function SignInForm({ modeDispatch }) {
         </TextButton>
       </ContentContainer>
       <ContentContainer>
-        <NaverContainer>
+        <NaverContainer
+          onClick={() =>
+            (window.location.href = process.env.REACT_APP_NAVER_URL)
+          }
+        >
           <Naver />
           <TextButton Style={textButtonStyle3}>
             네이버로
@@ -88,8 +92,7 @@ function SignInForm({ modeDispatch }) {
         </NaverContainer>
         <KakaoContainer
           onClick={() =>
-            (window.location.href =
-              'http://ec2-3-35-60-247.ap-northeast-2.compute.amazonaws.com:8080/oauth2/authorization/google')
+            (window.location.href = process.env.REACT_APP_KAKAO_URL)
           }
         >
           <Kakao />

@@ -9,11 +9,13 @@ import {
 import { Notice, DM, Logo, Profile, TextButton } from '../../atoms';
 import { HeaderMenuModal } from '../../molecules';
 import { SignInUpModal } from '..';
-import { useDispatch } from 'react-redux';
-import { DEL_TOKEN } from '../../../store/Auth/action';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function HeaderBar({ isSignIn }) {
-  const dispatch = useDispatch();
+  const member_id = useSelector(state => state.authReducer.member_id);
+  //console.log(member_id + '^^^^^^^^^^^^^');
+  const history = useNavigate();
   return (
     <>
       <HeaderLeftContainer>
@@ -21,7 +23,7 @@ function HeaderBar({ isSignIn }) {
         <TextButton Style={buttonStyle}>소셜링</TextButton>
       </HeaderLeftContainer>
       <LogoContainer>
-        <Logo />
+        <Logo onClick={() => history('/')} />
       </LogoContainer>
       <HeaderRightContainer>
         {isSignIn ? (
@@ -29,7 +31,13 @@ function HeaderBar({ isSignIn }) {
             <HeaderMenuModal IconType={Notice} />
             <HeaderMenuModal IconType={DM} />
             <Profile
-              onClick={() => dispatch({ type: DEL_TOKEN })}
+              onClick={() =>
+                history('/MyPage', {
+                  state: {
+                    member_id,
+                  },
+                })
+              }
               padding="20px"
             />
           </>

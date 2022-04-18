@@ -1,12 +1,16 @@
 import styled from 'styled-components';
+import introduction from '../../../assets/images/introduction.png';
 
 const Container = styled.div`
   display: flex;
   width: 100%;
   min-width: 1000px;
   height: 600px;
-  background: #000000;
-  margin-top: 150px;
+  margin-left: -1px;
+  background: url(${introduction});
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-top: 149px;
 `;
 const SideContainer = styled.div`
   display: flex;

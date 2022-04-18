@@ -1,6 +1,6 @@
 import Axios from 'axios';
 import { store } from '../store';
-import { DEL_TOKEN, SET_TOKEN } from '../store/Auth/action';
+import { delToken, setToken, signOut } from '../store/Auth/action';
 console.log(process.env.REACT_APP_API_URL + '$$');
 export const axios = Axios.create({});
 
@@ -29,11 +29,10 @@ axios.interceptors.response.use(
       const originRequest = config;
       const originRefreshToken = store?.getState()?.authReducer?.refresh_token;
       const originAccessToken = store?.getState()?.authReducer?.access_token;
+      const originMemeberId = store?.getState().authReducer?.member_id;
       console.log(originAccessToken);
       console.log(originRefreshToken);
-      store.dispatch({
-        type: DEL_TOKEN,
-      });
+      store.dispatch(delToken());
       try {
         const {
           data: {
@@ -50,15 +49,16 @@ axios.interceptors.response.use(
         console.log('리프레시토큰 재발급 성공!!!');
         console.log(accessToken);
         console.log(refreshToken);
-        store.dispatch({
-          type: SET_TOKEN,
-          payload: { token: accessToken, refreshToken },
-        });
+        store.dispatch(
+          setToken({
+            token: accessToken,
+            refreshToken,
+            memeber_id: originMemeberId,
+          }),
+        );
         return axios(originRequest);
       } catch (error) {
-        store.dispatch({
-          type: DEL_TOKEN,
-        });
+        store.dispatch(signOut());
         console.log(error);
       }
     }
