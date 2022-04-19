@@ -12,11 +12,11 @@ import {
 } from './styles';
 import { NormalButton, Poster } from '../../atoms';
 
-function Post({ title, poster }) {
+function Post({ title, poster, onLoad }) {
   return (
     <PostContainer>
       <ImageContainer>
-        <Poster Style={posterStyle} src={poster} alt={title} />
+        <Poster Style={posterStyle} src={poster} alt={title} onLoad={onLoad} />
         <ImageHover>
           <NormalButton Style={buttonStyle}>저장</NormalButton>
           <External />
@@ -31,6 +31,7 @@ function Post({ title, poster }) {
 Post.propTypes = {
   title: propTypes.string,
   poster: propTypes.string,
+  onLoad: propTypes.func,
 };
 
 export default Post;

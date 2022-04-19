@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useLayoutEffect } from 'react';
 import axios from 'axios';
 import { Container } from './styles';
 import { Post } from '../../molecules';
@@ -35,7 +35,9 @@ function Masonry() {
   //   'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ6uI3WnTSfj2DeN4avtcWeAOz1SDE1qnJcQQ&usqp=CAU',
   // ];
   const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+  const [imageLoading, setImageLoading] = useState(true);
+  const [imageLoaded, setImageLoaded] = useState(0);
   const ContainerRef = useRef();
   const throttler = useRef(null);
   const onResize = () => {
@@ -48,8 +50,10 @@ function Masonry() {
   };
   const reflowContents = () => {
     const contents = ContainerRef.current.children;
+    const len = contents.length;
     if (!contents.length) return;
     console.log('콘텐츠 로로디디드드!!!!!!');
+    console.log(len);
     const contentCount = Math.floor(
       (ContainerRef.current.clientWidth - 40) / 200,
     );
@@ -63,11 +67,11 @@ function Masonry() {
     for (let i = 0; i < (contentCount < 1 ? 1 : contentCount); i++)
       imageHeight[i] = 0;
     Array.prototype.forEach.call(contents, content => {
+      //console.log(content);
       const min = imageHeight.indexOf(Math.min(...imageHeight));
       const x = contentWidth * min + 20;
       const y = imageHeight[min];
-      imageHeight[min] += content.offsetHeight + 20;
-
+      imageHeight[min] += content.clientHeight + 20;
       content.setAttribute('style', `transform:translate(${x}px, ${y}px)`);
     });
     ContainerRef.current.setAttribute(
@@ -78,7 +82,7 @@ function Masonry() {
   useEffect(() => {
     window.addEventListener('resize', onResize);
     let isComponentMounted = true;
-    setIsLoading(true);
+    setImageLoading(true);
     const getMovies = async () => {
       try {
         const {
@@ -93,52 +97,36 @@ function Masonry() {
           setMovies(() => [...res]);
           setIsLoading(false);
         }
-        console.log(movies);
       } catch (error) {
         console.log(error);
       }
     };
     getMovies();
-    console.log(ContainerRef.current.children);
+    //console.log(ContainerRef.current.children);
     return () => {
       isComponentMounted = false;
       window.removeEventListener('resize', onResize);
     };
   }, []);
-  useEffect(() => {
-    //if (movies.length) reflowContents();
-    if (!isLoading) reflowContents();
-  }, [isLoading]);
+  useLayoutEffect(() => {
+    if (movies.length && imageLoaded === movies.length) {
+      console.log('렌더링은 완료!!');
+      reflowContents();
+      setImageLoading(false);
+    }
+  }, [imageLoaded]);
   return (
-    <Container ref={ContainerRef}>
-      {isLoading ? (
-        <span>Loading... </span>
-      ) : (
-        <>
-          <Post
-            key={998}
-            title="예시그림2"
-            poster={
-              'https://i.pinimg.com/474x/b9/ae/a0/b9aea098ff88274d39f55b27d9c53ca0.jpg'
-            }
-          />
-          <Post
-            key={999}
-            title="예시그림"
-            poster={
-              'https://i.pinimg.com/474x/ab/09/71/ab09717b28a5231c548c6c24736cd9a8.jpg'
-            }
-          />
-
-          {movies.map(movie => (
-            <Post
-              key={movie.id}
-              title={movie.title}
-              poster={movie.large_cover_image}
-            />
-          ))}
-        </>
-      )}
+    <Container ref={ContainerRef} Visible={!isLoading && !imageLoading}>
+      {movies.map(movie => (
+        <Post
+          key={movie.id}
+          title={movie.title}
+          poster={movie.large_cover_image}
+          onLoad={() => {
+            setImageLoaded(prev => prev + 1);
+          }}
+        />
+      ))}
     </Container>
   );
 }

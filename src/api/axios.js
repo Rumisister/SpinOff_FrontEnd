@@ -53,7 +53,7 @@ axios.interceptors.response.use(
           setToken({
             token: accessToken,
             refreshToken,
-            memeber_id: originMemeberId,
+            id: originMemeberId,
           }),
         );
         return axios(originRequest);
