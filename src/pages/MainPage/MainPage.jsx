@@ -14,7 +14,7 @@ function mainPage() {
   return (
     <>
       <Introduction />
-      <Masonry />
+      <Masonry contents={[]} />
     </>
   );
 }

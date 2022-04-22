@@ -26,7 +26,7 @@ const authReducer = createReducer(initialState, {
     isSignIn: false,
     access_token: '',
     refresh_token: '',
-    memeber_id: '',
+    member_id: '',
   }),
 });
 

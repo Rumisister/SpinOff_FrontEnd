@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import {
   LeftContainer,
   Planet,
@@ -19,17 +19,22 @@ function SignInUpModal() {
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   const signMode = SignModeHook();
-  const onSignForm = () => {
+  const onSignForm = useCallback(() => {
     document.body.style.overflow = 'hidden';
     setOpen(prev => !prev);
-  };
+  });
 
-  const closeSignForm = () => {
+  const closeSignForm = useCallback(() => {
     document.body.style.overflow = 'unset';
     setOpen(prev => !prev);
     signMode.onReset();
     dispatch(onReset());
-  };
+  });
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
   return (
     <>
       <TextButton onClick={onSignForm} Style={textButtonStyle}>

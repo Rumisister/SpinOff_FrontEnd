@@ -34,6 +34,7 @@ function HeaderBar({ isSignIn }) {
               onClick={() =>
                 history('/MyPage', {
                   state: {
+                    isMe: true,
                     member_id,
                   },
                 })

@@ -10,7 +10,6 @@ const Container = styled.div`
   background: url(${myPage});
   background-size: cover;
   background-repeat: no-repeat;
-  margin-top: 149px;
 `;
 
 const InfoContainer = styled.div`

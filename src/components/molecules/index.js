@@ -24,6 +24,7 @@ import NewCollectionInfo from './NewCollectionInfo';
 import CreatePostHasgTags from './CreatePostHashTags';
 import MyPageInfoPoster from './MyPageInfoPoster';
 import MyPageInfoAbout from './MyPageInfoAbout';
+import LoadingState from './LoadingState';
 
 export {
   SearchBar,
@@ -52,4 +53,5 @@ export {
   CreatePostHasgTags,
   MyPageInfoPoster,
   MyPageInfoAbout,
+  LoadingState,
 };

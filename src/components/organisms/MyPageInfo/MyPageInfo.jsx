@@ -6,8 +6,6 @@ import { Container, InfoContainer } from './styles';
 
 function MyPageInfo({ member_id }) {
   const [info, setInfo] = useState({});
-  console.log(member_id + '******************');
-  console.log(info, setInfo);
   useEffect(() => {
     let componentMounted = true;
     const requestMyPageInfo = async () => {
@@ -16,7 +14,6 @@ function MyPageInfo({ member_id }) {
           method: 'get',
           url: `/api/member/${member_id}`,
         });
-        console.log(res);
 
         if (componentMounted) {
           setInfo({ ...res.data.data });

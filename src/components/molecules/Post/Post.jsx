@@ -13,6 +13,7 @@ import {
 import { NormalButton, Poster } from '../../atoms';
 
 function Post({ title, poster, onLoad }) {
+  console.log('리런더링 포스트!!');
   return (
     <PostContainer>
       <ImageContainer>
@@ -34,4 +35,4 @@ Post.propTypes = {
   onLoad: propTypes.func,
 };
 
-export default Post;
+export default React.memo(Post);

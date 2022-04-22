@@ -5,12 +5,8 @@ console.log(process.env.REACT_APP_API_URL + '$$');
 export const axios = Axios.create({});
 
 axios.interceptors.request.use(config => {
-  console.log(store?.getState()?.authReducer?.accessToken);
   config.headers['X-AUTH-TOKEN'] =
     store?.getState()?.authReducer?.access_token || '';
-  console.log(config.headers);
-  console.log(store?.getState()?.authReducer?.access_token);
-  console.log('악시오스');
   return config;
 });
 
@@ -32,6 +28,7 @@ axios.interceptors.response.use(
       const originMemeberId = store?.getState().authReducer?.member_id;
       console.log(originAccessToken);
       console.log(originRefreshToken);
+      console.log(originMemeberId);
       store.dispatch(delToken());
       try {
         const {

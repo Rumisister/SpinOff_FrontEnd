@@ -10,6 +10,8 @@ import CreatePostRightSide from './CreatePostRightSide';
 import CreatePostLeftSide from './CreatePostLeftSide';
 import MyPageInfo from './MyPageInfo';
 import MyPageInfoAbout from '../molecules/MyPageInfoAbout';
+import MyPageCuration from './MyPageCuration';
+import Masonry from './Masonry';
 
 export {
   Header,
@@ -24,4 +26,6 @@ export {
   CreatePostLeftSide,
   MyPageInfo,
   MyPageInfoAbout,
+  MyPageCuration,
+  Masonry,
 };

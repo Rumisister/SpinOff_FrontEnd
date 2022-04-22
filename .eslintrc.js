@@ -21,6 +21,7 @@ module.exports = {
         endOfLine: 'auto',
       },
     ],
+    'no-unused-vars': [2, { args: 'all', argsIgnorePattern: '^_' }],
   },
   parserOptions: {
     sourceType: 'module',

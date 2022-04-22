@@ -14,14 +14,14 @@ function MyPageInfoAbout({ info }) {
   console.log(info);
   return (
     <Container>
-      <NameContainer>마블링(@ID)</NameContainer>
+      <NameContainer>{`${info.nickname}(@${info.accountId})`}</NameContainer>
       <MessageContainer>
         {info.bio || '상태메세지를 등록해 주세요'}
       </MessageContainer>
       <RelatedContainer>
         <EachTypeContainer>
           <RelatedType>큐레이션</RelatedType>
-          <RelatedValue>1,234</RelatedValue>
+          <RelatedValue>{info.postSize}</RelatedValue>
         </EachTypeContainer>
         <EachTypeContainer>
           <RelatedType>팔로워</RelatedType>
