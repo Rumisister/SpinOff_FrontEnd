@@ -1,11 +1,12 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { DEL_TOKEN, SET_TOKEN, SIGN_OUT } from './action';
+import { DEL_TOKEN, SET_GOBACK_PAGE, SET_TOKEN, SIGN_OUT } from './action';
 
 const initialState = {
   isSignIn: false,
   access_token: '',
   refresh_token: '',
   member_id: '',
+  goBackPage: '',
 };
 
 const authReducer = createReducer(initialState, {
@@ -20,6 +21,10 @@ const authReducer = createReducer(initialState, {
     ...state,
     access_token: '',
     refresh_token: '',
+  }),
+  [SET_GOBACK_PAGE]: (state, action) => ({
+    ...state,
+    goBackPage: action.payload,
   }),
   [SIGN_OUT]: state => ({
     ...state,

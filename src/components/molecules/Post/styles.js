@@ -15,7 +15,15 @@ const PostContainer = styled.figure`
 `;
 
 const PostCaption = styled.figcaption`
-  padding: 10px;
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 14px;
+`;
+const SubCaption = styled.figcaption`
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  font-size: 14px;
 `;
 const ImageContainer = styled.div`
   position: relative;
@@ -75,7 +83,17 @@ const posterStyle = {
   height: 'auto',
   minHeight: '150px',
   maxWidth: '100%',
-  verticalAlign: 'middle',
+};
+const posterStyle2 = {
+  width: '25px',
+  height: '25px',
+  borderRadius: '30px',
+  margin: '0 5px 0 0',
+};
+const posterStyle3 = {
+  width: '20px',
+  height: '20px',
+  margin: '0 5px 0 0',
 };
 export {
   PostContainer,
@@ -86,4 +104,7 @@ export {
   External,
   More,
   buttonStyle,
+  SubCaption,
+  posterStyle2,
+  posterStyle3,
 };

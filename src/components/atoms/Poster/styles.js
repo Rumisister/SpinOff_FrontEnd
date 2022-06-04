@@ -10,6 +10,8 @@ const Image = styled.img`
   min-height: ${props => props?.Style?.minHeight || ''};
   max-width: ${props => props?.Style?.maxWidth || ''};
   vertical-align: ${props => props?.Style?.verticalAlign || ''};
+  margin: ${props => props?.Style?.margin || ''};
+  filter: ${props => props?.Style?.filter || ''};
 `;
 
 export default Image;

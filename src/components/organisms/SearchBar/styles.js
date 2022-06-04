@@ -24,51 +24,18 @@ const SearchBarContainer = styled(Common)`
   box-shadow: 0px 4px 10px 3px rgba(0, 0, 0, 0.25);
 `;
 
-const SearchBarModal = styled(Common)`
-  //display: ${props => (props.focused ? '' : 'none')};
-  visibility: ${props => (props?.focused ? 'visible' : 'hidden')};
-  opacity: ${props => (props?.focused ? '1' : '0')};
-  transition: 0.3s;
-  top: 148px;
-  max-height: 580px;
-  border-bottom-left-radius: 50px;
-  border-bottom-right-radius: 50px;
-  background: rgba(32, 32, 32, 0.9);
-  overflow: auto;
-  &::-webkit-scrollbar {
-    width: 8px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: #e4e4e4;
-    border-radius: 100px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 100px;
-    background: rgba(32, 32, 32, 0.9);
-    background-clip: padding-box;
-    border: 2px solid transparent;
-    box-shadow: inset 2px 2px 5px 0 rgba(#fff, 0.5);
-  }
-`;
-const Contents = styled.div`
-  padding: 30px;
-  user-select: none;
-`;
 const SearchHistory = styled.div``;
 const PopHashTag = styled.div``;
 const CuratedMovie = styled.div``;
 
 const inputStyle = {
-  width: '100%',
+  width: '85%',
   padding: '13px 15px',
   backGround: 'transparent',
 };
 export {
   Magnifier,
   SearchBarContainer,
-  SearchBarModal,
-  Contents,
   SearchHistory,
   PopHashTag,
   CuratedMovie,

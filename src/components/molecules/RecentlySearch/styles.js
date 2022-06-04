@@ -21,5 +21,7 @@ const buttonStyle = {
   color: 'white',
   fontSize: '16px',
   fontWeight: 'bold',
+  borderRadius: '20px',
+  padding: '10px 15px',
 };
 export { Container, Title, Contents, buttonStyle };

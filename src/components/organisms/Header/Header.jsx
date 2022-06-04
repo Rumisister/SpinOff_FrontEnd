@@ -1,23 +1,13 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { Container } from './styles';
-import {
-  CuratedMoive,
-  PopularHashTag,
-  RecentlySearch,
-  SearchBar,
-} from '../../molecules';
-import { HeaderBar } from '..';
+import { HeaderBar, SearchBar } from '..';
 
 function Header({ isSignIn }) {
   return (
     <Container>
       <HeaderBar isSignIn={isSignIn} />
-      <SearchBar>
-        <RecentlySearch />
-        <PopularHashTag />
-        <CuratedMoive />
-      </SearchBar>
+      <SearchBar isSignIn={isSignIn} />
     </Container>
   );
 }

@@ -1,11 +1,17 @@
 import { createReducer } from '@reduxjs/toolkit';
-import { FAILED_SIGNIN, RESET, SUCCESS_SIGNIN } from './action';
+import {
+  FAILED_SIGNIN,
+  RESET,
+  SET_GOBACK_PAGE,
+  SUCCESS_SIGNIN,
+} from './action';
 
 const initialState = {
   signInError: false,
   signInSuccess: false,
   refreshToken: '',
   token: '',
+  goBackPage: '',
 };
 
 const signInReducer = createReducer(initialState, {
@@ -18,6 +24,10 @@ const signInReducer = createReducer(initialState, {
     ...state,
     signInSuccess: false,
     signInError: true,
+  }),
+  [SET_GOBACK_PAGE]: (state, action) => ({
+    ...state,
+    goBackPage: action.payload,
   }),
   [RESET]: () => ({
     ...initialState,

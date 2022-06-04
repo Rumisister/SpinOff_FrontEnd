@@ -1,4 +1,3 @@
-import SearchBar from './SearchBar';
 import HeaderMenuModal from './HeaderMenuModal';
 import Post from './Post';
 import SignInForm from './SignInForm';
@@ -25,9 +24,20 @@ import CreatePostHasgTags from './CreatePostHashTags';
 import MyPageInfoPoster from './MyPageInfoPoster';
 import MyPageInfoAbout from './MyPageInfoAbout';
 import LoadingState from './LoadingState';
+import SearchBarModal from './SearchBarModal';
+import SearchType from './SearchType';
+import SearchBarRelated from './SearchBarRelated';
+import SearchBarRelatedAll from './SearchBarRelatedAll';
+import SearchBarRelatedCurator from './SearchBarRelatedCurator';
+import SearchBarRelatedHashTag from './SearchBarRelatedHashTag';
+import SearchResultCollection from './SearchResultCollection';
+import SearchResultHashTags from './SearchResultHashTags';
+import SearchAllCollections from './SearchAllCollections';
+import SearchResultMovie from './SearchResultMovie';
+import SearchResultMainMovie from './SearchResultMainMovie';
+import SearchResultAllCurator from './SearchResultAllCurator';
 
 export {
-  SearchBar,
   HeaderMenuModal,
   Post,
   SignInForm,
@@ -54,4 +64,16 @@ export {
   MyPageInfoPoster,
   MyPageInfoAbout,
   LoadingState,
+  SearchBarModal,
+  SearchType,
+  SearchBarRelated,
+  SearchBarRelatedAll,
+  SearchBarRelatedCurator,
+  SearchBarRelatedHashTag,
+  SearchResultCollection,
+  SearchResultHashTags,
+  SearchAllCollections,
+  SearchResultMovie,
+  SearchResultMainMovie,
+  SearchResultAllCurator,
 };

@@ -11,7 +11,17 @@ import CreatePostLeftSide from './CreatePostLeftSide';
 import MyPageInfo from './MyPageInfo';
 import MyPageInfoAbout from '../molecules/MyPageInfoAbout';
 import MyPageCuration from './MyPageCuration';
+import MyPageCollection from './MyPageCollection';
 import Masonry from './Masonry';
+import SearchBar from './SearchBar';
+import SearchCollectionMasonry from './SearchCollectionMasonry';
+import SearchCollectionContents from './SearchCollectionContents';
+import SearchAllContents from './SearchAllContents';
+import SearchAllMasonry from './SearchAllMasonry';
+import SearchCuratorContents from './SearchCuratorContents';
+import SearchCuratorMasonry from './SearchCuratorMasonry';
+import SearchMovieContents from './SearchMovieContents';
+import SearchMovieMasonry from './SearchMovieMasonry';
 
 export {
   Header,
@@ -27,5 +37,15 @@ export {
   MyPageInfo,
   MyPageInfoAbout,
   MyPageCuration,
+  MyPageCollection,
   Masonry,
+  SearchBar,
+  SearchCollectionMasonry,
+  SearchCollectionContents,
+  SearchAllContents,
+  SearchAllMasonry,
+  SearchCuratorContents,
+  SearchCuratorMasonry,
+  SearchMovieContents,
+  SearchMovieMasonry,
 };

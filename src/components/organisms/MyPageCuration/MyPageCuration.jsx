@@ -12,7 +12,7 @@ import { Container } from './styles';
 import useIntersectionObserver from '../../../Hooks/useIntersectionObserver';
 import { LoadingState } from '../../molecules';
 
-const MyPageCuration = forwardRef(({ member_id }, ref) => {
+const MyPageCuration = forwardRef(({ member_id, contentType }, ref) => {
   const [curation, setCuration] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const isLoadingRefCheck = useRef(null);
@@ -90,6 +90,7 @@ const MyPageCuration = forwardRef(({ member_id }, ref) => {
   useEffect(() => {
     componentMounted.current = true;
     console.log('마운트 후 !!!');
+    console.log(contentType);
     requestCuration();
     return () => {
       componentMounted.current = false;
@@ -99,12 +100,13 @@ const MyPageCuration = forwardRef(({ member_id }, ref) => {
   return (
     <Container>
       <LoadingState show={isLoading} />
-      <Masonry contents={curation} />
+      <Masonry contents={curation} contentType={contentType} />
     </Container>
   );
 });
 MyPageCuration.displayName = 'MyPageCuration';
 MyPageCuration.propTypes = {
   member_id: propTypes.number,
+  contentType: propTypes.string,
 };
 export default MyPageCuration;

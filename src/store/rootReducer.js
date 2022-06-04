@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import listFilterReducer from './ListFilter/reducer';
+import searchFilterReducer from './SearchFilter/reducer';
 import signUpReducer from './SignUp/reducer';
 import authReducer from './Auth/reducer';
 import postReducer from './Post/reducer';
@@ -13,6 +14,7 @@ const persisConfig = {
 };
 
 const rootReducer = combineReducers({
+  searchFilterReducer,
   listFilterReducer,
   signUpReducer,
   authReducer,

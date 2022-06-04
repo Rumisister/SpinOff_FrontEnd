@@ -20,6 +20,8 @@ import { useInput } from '../../../Hooks';
 import propTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { requestSignIn } from '../../../store/SignIn/action';
+import { useLocation } from 'react-router-dom';
+import { setGoBackPage } from '../../../store/Auth/action';
 //import { axios } from '../../../api';
 
 const idValidator = id => {
@@ -33,6 +35,8 @@ const pwValidator = pw => {
 
 function SignInForm({ modeDispatch }) {
   const dispatch = useDispatch();
+  const location = useLocation();
+  console.log(location.pathname + '##');
   const idInput = useInput('', idValidator);
   const pwInput = useInput('', pwValidator);
   const onSignIn = () => {
@@ -46,6 +50,7 @@ function SignInForm({ modeDispatch }) {
     );
   };
   useEffect(() => {
+    dispatch(setGoBackPage(location.pathname));
     return () => {
       idInput.onReset();
       pwInput.onReset();
@@ -79,9 +84,9 @@ function SignInForm({ modeDispatch }) {
       </ContentContainer>
       <ContentContainer>
         <NaverContainer
-          onClick={() =>
-            (window.location.href = process.env.REACT_APP_NAVER_URL)
-          }
+          onClick={() => {
+            window.location.href = process.env.REACT_APP_NAVER_URL;
+          }}
         >
           <Naver />
           <TextButton Style={textButtonStyle3}>
@@ -91,9 +96,9 @@ function SignInForm({ modeDispatch }) {
           </TextButton>
         </NaverContainer>
         <KakaoContainer
-          onClick={() =>
-            (window.location.href = process.env.REACT_APP_KAKAO_URL)
-          }
+          onClick={() => {
+            window.location.href = process.env.REACT_APP_KAKAO_URL;
+          }}
         >
           <Kakao />
           <TextButton Style={textButtonStyle3}>

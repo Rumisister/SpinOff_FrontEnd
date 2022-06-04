@@ -9,8 +9,9 @@ import propTypes from 'prop-types';
 //import axios from 'axios';
 import { Container } from './styles';
 import { Post } from '../../molecules';
+import defaultThumbnail from '../../../assets/images/defaultThumbnail.png';
 
-const Masonry = ({ contents }) => {
+const Masonry = ({ contents, contentType }) => {
   //const [isLoading, setIsLoading] = useState(true);
   const [imageLoading, setImageLoading] = useState(true);
   const [imageLoaded, setImageLoaded] = useState(0);
@@ -65,7 +66,7 @@ const Masonry = ({ contents }) => {
         //console.log(newPosition);
         return;
       }
-      console.log(s);
+      //console.log(s);
       content.setAttribute('style', newPosition);
     });
     ContainerRef.current.setAttribute(
@@ -115,7 +116,15 @@ const Masonry = ({ contents }) => {
         <Post
           key={content.id}
           title={content.title}
-          poster={content.thumbnailUrl}
+          poster={
+            contentType === 'curation'
+              ? content.thumbnailUrl.length
+                ? content.thumbnailUrl
+                : defaultThumbnail
+              : content.thumbnailUrls.length
+              ? content.thumbnailUrls
+              : defaultThumbnail
+          }
           onLoad={setOnLoad}
         />
       ))}
@@ -124,5 +133,6 @@ const Masonry = ({ contents }) => {
 };
 Masonry.propTypes = {
   contents: propTypes.array,
+  contentType: propTypes.string,
 };
 export default Masonry;

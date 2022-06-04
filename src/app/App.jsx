@@ -6,6 +6,10 @@ import { Footer, Header } from '../components/organisms';
 import {
   MainPage,
   MyPage,
+  SearchAll,
+  SearchCollection,
+  SearchCurator,
+  SearchMovie,
   SignInLoadingGoogle,
   SignInLoadingKakao,
   SignInLoadingNaver,
@@ -21,7 +25,11 @@ function App() {
         <Route path="/SignInLoading/naver" element={<SignInLoadingNaver />} />
         <Route path="/SignInLoading/google" element={<SignInLoadingGoogle />} />
         <Route path="/SignInLoading/kakao" element={<SignInLoadingKakao />} />
-        <Route path="/MyPage" element={<MyPage />} />
+        <Route path="/MyPage/:memberId" element={<MyPage />} />
+        <Route path="/all/:keyword" element={<SearchAll />} />
+        <Route path="/collection/:keyword" element={<SearchCollection />} />
+        <Route path="/member/:keyword" element={<SearchCurator />} />
+        <Route path="/movie/:keyword" element={<SearchMovie />} />
       </Routes>
       <Footer />
     </BrowserRouter>
