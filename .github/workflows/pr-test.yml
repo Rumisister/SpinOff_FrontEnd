@@ -5,7 +5,7 @@ on:
     branches: [develop]
 
 jobs:
-  Run Jest:
+  jest:
     runs-on: [ubuntu-latest]
     strategy:
       matrix:
