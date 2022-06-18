@@ -11,12 +11,13 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
+      - run: pwd
       - name: npm install
         run: npm install
-        working-directory: ./SpinOff_FrontEnd
+        working-directory: /SpinOff_FrontEnd
       - name: run test code
         run: npm run test:watch
-        working-directory: ./SpinOff_FrontEnd
+        working-directory: /SpinOff_FrontEnd
       - name: if fail
         uses: actions/github-script@0.8.0
         with:
