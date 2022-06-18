@@ -1,11 +1,8 @@
 name: PR Test
 
 on:
-pull_request:
-  types: [opened, reopened]
-  branches: [develop, feature, release]
-push:
-  branches: [develop, main]
+  push:
+    branches: [develop]
 
 jobs:
 Run Jest:
