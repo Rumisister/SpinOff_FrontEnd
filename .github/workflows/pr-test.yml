@@ -13,8 +13,10 @@ jobs:
     steps:
       - name: npm install
         run: npm install
+        working-directory: client
       - name: run test code
         run: npm run test:watch
+        working-directory: client
 
       - name: if fail
         uses: actions/github-script@0.8.0
