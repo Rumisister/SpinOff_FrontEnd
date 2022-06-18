@@ -11,6 +11,8 @@ jobs:
       matrix:
         node-version: [12.x]
     steps:
+      - name: npm init
+        run: npm init -y
       - name: npm install
         run: npm install
         working-directory: client
