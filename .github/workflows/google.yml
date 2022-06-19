@@ -6,14 +6,14 @@ on:
 
 # Environment variables available to all jobs and steps in this workflow
 env:
-GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
-GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
-GITHUB_SHA: ${{ github.sha }}
-GKE_ZONE: ${{ secrets.GKE_ZONE }}
-GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
-IMAGE: ${{ secrets.IMAGE }}
-REGISTRY_HOSTNAME: ${{ secrets.REGISTRY_HOSTNAME }}
-DEPLOYMENT_NAME: ${{ secrets.DEPLOYMENT_NAME }}
+  GKE_PROJECT: ${{ secrets.GKE_PROJECT }}
+  GKE_EMAIL: ${{ secrets.GKE_EMAIL }}
+  GITHUB_SHA: ${{ github.sha }}
+  GKE_ZONE: ${{ secrets.GKE_ZONE }}
+  GKE_CLUSTER: ${{ secrets.GKE_CLUSTER }}
+  IMAGE: ${{ secrets.IMAGE }}
+  REGISTRY_HOSTNAME: ${{ secrets.REGISTRY_HOSTNAME }}
+  DEPLOYMENT_NAME: ${{ secrets.DEPLOYMENT_NAME }}
 
 jobs:
   setup-build-publish-deploy:
