@@ -6,7 +6,7 @@ on:
 
 jobs:
   jest:
-    runs-on: [macos-latest]
+    runs-on: [ubuntu-latest]
     strategy:
       matrix:
         node-version: [12.x]
@@ -14,10 +14,8 @@ jobs:
       - run: pwd
       - name: npm install
         run: npm install
-        working-directory: /Users/dong/Documents/SpinOff_FrontEnd/package.json
       - name: run test code
         run: npm run test:watch
-        working-directory: /Users/dong/Documents/SpinOff_FrontEnd/package.json
       - name: if fail
         uses: actions/github-script@0.8.0
         with:
