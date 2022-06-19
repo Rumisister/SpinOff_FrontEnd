@@ -23,8 +23,7 @@ function SignInLoadingKakao() {
         } = await axios({
           method: 'post',
           url: '/api/sign/login/social/kakao',
-          data: null,
-          params: {
+          data: {
             authCode: accessCode,
           },
         });

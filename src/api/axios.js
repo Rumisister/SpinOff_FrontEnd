@@ -2,7 +2,9 @@ import Axios from 'axios';
 import { store } from '../store';
 import { delToken, setToken, signOut } from '../store/Auth/action';
 console.log(process.env.REACT_APP_API_URL + '$$');
-export const axios = Axios.create({});
+export const axios = Axios.create({
+  baseURL: process.env.REACT_APP_API_URL,
+});
 
 axios.interceptors.request.use(config => {
   config.headers['X-AUTH-TOKEN'] =

@@ -24,8 +24,7 @@ const requestEmailAuth = async email => {
   const res = await axios({
     method: 'post',
     url: '/api/sign/auth-email',
-    data: null,
-    params: {
+    data: {
       email: email,
     },
   });
