@@ -80,11 +80,13 @@ function SignUpForm({ isOpen, modeDispatch }) {
     if (result) {
       const fitBirthForm =
         birth.slice(0, 4) + '-' + birth.slice(4, 6) + '-' + birth.slice(6, 8);
+      const fitPhone =
+        phone.slice(0, 3) + phone.slice(4, 8) + phone.slice(9, 13);
       dispatch(
         checkAuth({
           name: name,
           birth: fitBirthForm,
-          phone: phone,
+          phone: fitPhone,
           auth: auth,
           email: email,
         }),

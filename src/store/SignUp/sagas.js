@@ -78,6 +78,7 @@ const requestSignUp = async ({
   birth,
   email,
   name,
+  phoneNumber,
   nickName,
 }) => {
   const res = await axios({
@@ -90,6 +91,7 @@ const requestSignUp = async ({
       birth: birth,
       email: email,
       name: name,
+      phoneNumber: phoneNumber,
       nickname: nickName,
     },
   });
@@ -170,6 +172,8 @@ function* handleAvailableNick(action) {
 }
 
 function* handleSignUp(action) {
+  console.log(action);
+  console.log('###');
   try {
     const { data: state } = yield call(requestSignUp, action.payload);
     console.log(state);

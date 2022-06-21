@@ -35,6 +35,7 @@ function SignInfoForm({ modeDispatch }) {
     checkedId,
     checkedNick,
     name,
+    phone,
     birth,
     auth,
     email,
@@ -48,6 +49,7 @@ function SignInfoForm({ modeDispatch }) {
       checkedId: state.signUpReducer.inputs.id,
       checkedNick: state.signUpReducer.inputs.nickName,
       name: state.signUpReducer.inputs.name,
+      phone: state.signUpReducer.inputs.phone,
       birth: state.signUpReducer.inputs.birth,
       auth: state.signUpReducer.inputs.auth,
       email: state.signUpReducer.inputs.email,
@@ -151,6 +153,7 @@ function SignInfoForm({ modeDispatch }) {
             birth,
             email,
             name,
+            phoneNumber: phone,
             nickName: checkedNick,
           }),
         );
