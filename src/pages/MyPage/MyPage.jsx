@@ -1,5 +1,5 @@
 import React, { useCallback, useRef, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import {
   MyPageCollection,
   MyPageCuration,
@@ -16,7 +16,7 @@ import {
 function MyPage() {
   console.log('마이페이지');
   const [contentType, setContentType] = useState('curation');
-  const { memberId } = useParams();
+  const memberId = new URLSearchParams(useLocation().search).get('member_id');
   const rootRef = useRef(null);
   const targetRef = useRef(null);
   const ref = useRef({ rootRef, targetRef });

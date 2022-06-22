@@ -31,7 +31,7 @@ function HeaderBar({ isSignIn }) {
             <HeaderMenuModal IconType={Notice} />
             <HeaderMenuModal IconType={DM} />
             <Profile
-              onClick={() => history(`/MyPage/${member_id}`)}
+              onClick={() => history(`/MyPage?member_id=${member_id}`)}
               padding="20px"
             />
           </>

@@ -31,7 +31,7 @@ function SearchBar({ isSignIn }) {
       if (searchHook.value[0] === '#' || searchHook.value[0] === '@')
         keyword = keyword.slice(1);
       setFocused(false);
-      history(`/${type}/${keyword}`);
+      history(`/${type}?keyword=${keyword}`);
     }
   };
 
