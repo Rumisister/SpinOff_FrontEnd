@@ -115,6 +115,7 @@ const Masonry = ({ contents, contentType }) => {
       {contents.map(content => (
         <Post
           key={content.id}
+          id={content.id}
           title={content.title}
           poster={
             contentType === 'curation'
@@ -125,6 +126,7 @@ const Masonry = ({ contents, contentType }) => {
               ? content.thumbnailUrls
               : defaultThumbnail
           }
+          type={contentType}
           onLoad={setOnLoad}
         />
       ))}

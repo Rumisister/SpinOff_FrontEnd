@@ -22,6 +22,7 @@ import SearchCuratorContents from './SearchCuratorContents';
 import SearchCuratorMasonry from './SearchCuratorMasonry';
 import SearchMovieContents from './SearchMovieContents';
 import SearchMovieMasonry from './SearchMovieMasonry';
+import PostDetailLeftSide from './PostDetailLeftSide';
 
 export {
   Header,
@@ -48,4 +49,5 @@ export {
   SearchCuratorMasonry,
   SearchMovieContents,
   SearchMovieMasonry,
+  PostDetailLeftSide,
 };

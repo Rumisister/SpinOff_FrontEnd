@@ -12,7 +12,7 @@ const requestCreatePost = async () => {
   const createPostVO = store.getState()?.postReducer?.createPostVO;
   const formPostVO = {
     ...createPostVO,
-    hashtagContents: [...createPostVO.hashtagContents],
+    hashtagContents: [...createPostVO.hashtagContents.map(h => h.title)],
     collectionIds: [...createPostVO.collectionIds],
   };
   formData.append(

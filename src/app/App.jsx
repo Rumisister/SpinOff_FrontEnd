@@ -6,6 +6,7 @@ import { Footer, Header } from '../components/organisms';
 import {
   MainPage,
   MyPage,
+  PostDetail,
   SearchAll,
   SearchCollection,
   SearchCurator,
@@ -30,6 +31,7 @@ function App() {
         <Route path="/collection" element={<SearchCollection />} />
         <Route path="/member" element={<SearchCurator />} />
         <Route path="/movie" element={<SearchMovie />} />
+        <Route path="/PostDetail" element={<PostDetail />} />
       </Routes>
       <Footer />
     </BrowserRouter>

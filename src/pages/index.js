@@ -7,6 +7,7 @@ import SearchAll from './SearchAll';
 import SearchCollection from './SearchCollection';
 import SearchCurator from './SearchCurator';
 import SearchMovie from './SearchMovie';
+import PostDetail from './PostDetail';
 
 export {
   MainPage,
@@ -18,4 +19,5 @@ export {
   SearchCollection,
   SearchCurator,
   SearchMovie,
+  PostDetail,
 };

@@ -11,10 +11,8 @@ function SignInLoadingNaver() {
         const res = axios({
           mothod: 'post',
           url: '/api/sign/login/social/naver',
-          data: null,
-          params: {
+          data: {
             authCode: accessCode,
-            provider: 'naver',
           },
         });
         console.log(res);
