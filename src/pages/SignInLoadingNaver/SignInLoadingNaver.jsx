@@ -9,7 +9,7 @@ function SignInLoadingNaver() {
     const reqeustSocialSignIn = async () => {
       try {
         const res = axios({
-          mothod: 'post',
+          method: 'post',
           url: '/api/sign/login/social/naver',
           data: {
             authCode: accessCode,
