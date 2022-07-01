@@ -13,4 +13,4 @@ Poster.propTypes = {
   onLoad: propTypes.func,
 };
 
-export default Poster;
+export default React.memo(Poster);

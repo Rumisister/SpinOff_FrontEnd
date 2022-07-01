@@ -4,7 +4,7 @@ import { TextArea } from '../../atoms';
 import { Container } from './styles';
 
 function NewCollectionInfo({
-  inputStyle,
+  Style,
   placeholder,
   value,
   onChange,
@@ -16,7 +16,7 @@ function NewCollectionInfo({
       <TextArea
         value={value}
         onChange={onChange}
-        Style={inputStyle}
+        Style={Style}
         placeholder={placeholder}
         name={name}
       />
@@ -26,7 +26,7 @@ function NewCollectionInfo({
 }
 
 NewCollectionInfo.propTypes = {
-  inputStyle: propTypes.object,
+  Style: propTypes.object,
   placeholder: propTypes.string,
   value: propTypes.string,
   onChange: propTypes.func,

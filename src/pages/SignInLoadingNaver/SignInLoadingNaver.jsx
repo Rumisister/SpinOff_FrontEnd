@@ -42,6 +42,9 @@ function SignInLoadingNaver() {
       }
     };
     reqeustSocialSignIn();
+    return () => {
+      componentMounted = false;
+    };
   }, []);
   return <div></div>;
 }

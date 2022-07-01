@@ -3,19 +3,13 @@ import propTypes from 'prop-types';
 import { Input } from '../../atoms';
 import { Container } from './styles';
 
-function NewCollectionTitle({
-  inputStyle,
-  placeholder,
-  value,
-  onChange,
-  name,
-}) {
+function NewCollectionTitle({ Style, placeholder, value, onChange, name }) {
   return (
     <Container>
       <Input
         value={value}
         onChange={onChange}
-        Style={inputStyle}
+        Style={Style}
         placeholder={placeholder}
         name={name}
       />
@@ -24,7 +18,7 @@ function NewCollectionTitle({
 }
 
 NewCollectionTitle.propTypes = {
-  inputStyle: propTypes.object,
+  Style: propTypes.object,
   placeholder: propTypes.string,
   value: propTypes.string,
   onChange: propTypes.func,

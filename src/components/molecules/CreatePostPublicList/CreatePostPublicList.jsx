@@ -26,7 +26,6 @@ function CreatePostPublicList({ collectionPublic, isPost = false }) {
       console.log(error.response);
     }
   };
-  console.log(requestPublicList);
   useEffect(() => {
     requestPublicList();
   }, []);

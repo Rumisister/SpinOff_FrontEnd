@@ -36,6 +36,10 @@ import SearchAllCollections from './SearchAllCollections';
 import SearchResultMovie from './SearchResultMovie';
 import SearchResultMainMovie from './SearchResultMainMovie';
 import SearchResultAllCurator from './SearchResultAllCurator';
+import PostDetailLeftSide_PostLists from './PostDetailLeftSide_PostLists';
+import PostDetailLeftSide_Movie from './PostDetailLeftSide_Movie';
+import PostDetailRightSide_Header from './PostDetailRightSide_Header';
+import PostDetailRightSide_Main from './PostDetailRightSide_Main';
 
 export {
   HeaderMenuModal,
@@ -76,4 +80,8 @@ export {
   SearchResultMovie,
   SearchResultMainMovie,
   SearchResultAllCurator,
+  PostDetailLeftSide_PostLists,
+  PostDetailLeftSide_Movie,
+  PostDetailRightSide_Header,
+  PostDetailRightSide_Main,
 };

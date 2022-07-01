@@ -19,8 +19,6 @@ import {
 } from './action';
 
 const requestEmailAuth = async email => {
-  console.log(email + '!!');
-  console.log(axios);
   const res = await axios({
     method: 'post',
     url: '/api/sign/auth-email',

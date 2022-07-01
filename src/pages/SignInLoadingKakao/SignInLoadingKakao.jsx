@@ -43,6 +43,10 @@ function SignInLoadingKakao() {
       }
     };
     reqeustSocialSignIn();
+
+    return () => {
+      componentMounted = false;
+    };
   }, []);
   return <div></div>;
 }

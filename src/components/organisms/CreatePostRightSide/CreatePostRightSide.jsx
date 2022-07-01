@@ -107,14 +107,14 @@ function CreatePostRightSide() {
             name="title"
             value={postTitle}
             onChange={onChangeTitle}
-            inputStyle={inputStyle}
+            Style={inputStyle}
             placeholder="제목추가"
           />
           <NewCollectionInfo
             name="content"
             value={postContents}
             onChange={onChangeContents}
-            inputStyle={inputStyle2}
+            Style={inputStyle2}
             placeholder="큐레이션 설명
 본문에 #을 이용해 태그를 입력해보세요!(최대30개)"
           />

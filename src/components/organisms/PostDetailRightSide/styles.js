@@ -3,12 +3,13 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  width: 47%;
+  flex: 1;
   height: 100%;
   background: white;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
   box-sizing: border-box;
+  padding: 20px;
 `;
 
 export { Container };

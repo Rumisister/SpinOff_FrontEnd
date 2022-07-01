@@ -11,6 +11,7 @@ function TextArea({
   name,
   placeholder,
 }) {
+  console.log(Style);
   return (
     <TextInput
       Style={Style}
