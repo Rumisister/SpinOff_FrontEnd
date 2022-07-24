@@ -40,6 +40,8 @@ import PostDetailLeftSide_PostLists from './PostDetailLeftSide_PostLists';
 import PostDetailLeftSide_Movie from './PostDetailLeftSide_Movie';
 import PostDetailRightSide_Header from './PostDetailRightSide_Header';
 import PostDetailRightSide_Main from './PostDetailRightSide_Main';
+import PostDetailRightSide_HashTags from './PostDetailRightSide_HashTags';
+import PostDetailRightSide_Footer from './PostDetailRightSide_Footer';
 
 export {
   HeaderMenuModal,
@@ -84,4 +86,6 @@ export {
   PostDetailLeftSide_Movie,
   PostDetailRightSide_Header,
   PostDetailRightSide_Main,
+  PostDetailRightSide_HashTags,
+  PostDetailRightSide_Footer,
 };

@@ -11,6 +11,7 @@ const Image = styled.img`
   max-width: ${props => props?.Style?.maxWidth || ''};
   vertical-align: ${props => props?.Style?.verticalAlign || ''};
   margin: ${props => props?.Style?.margin || ''};
+  transform: ${props => props.Style.transform || ''};
   filter: ${props => props?.Style?.filter || ''};
 `;
 

@@ -25,6 +25,7 @@ import SearchMovieMasonry from './SearchMovieMasonry';
 import PostDetailLeftSide from './PostDetailLeftSide';
 import PostDetailAboutPost from './PostDetailAboutPost';
 import PostDetailRightSide from './PostDetailRightSide';
+import PostDetailComment from './PostDetialComment';
 
 export {
   Header,
@@ -54,4 +55,5 @@ export {
   PostDetailLeftSide,
   PostDetailAboutPost,
   PostDetailRightSide,
+  PostDetailComment,
 };
