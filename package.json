@@ -64,5 +64,6 @@
   },
   "devDependencies": {
     "husky": "^8.0.1"
-  }
+  },
+  "proxy": "https://developer.spinoff-story.com"
 }
