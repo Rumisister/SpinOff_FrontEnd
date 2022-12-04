@@ -6,8 +6,8 @@ const Container = styled.div`
   width: 47%;
   height: 100%;
   background: white;
-  border-top-left-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-top-left-radius: 1.25rem;
+  border-bottom-left-radius: 1.25rem;
   box-sizing: border-box;
 `;
 

@@ -43,7 +43,7 @@ import PostDetailRightSide_Main from './PostDetailRightSide_Main';
 import PostDetailRightSide_HashTags from './PostDetailRightSide_HashTags';
 import PostDetailRightSide_Footer from './PostDetailRightSide_Footer';
 import PostDetailComment_Comment from './PostDetailComment_Comment';
-
+import PostDetailComment_AddComment from './PostDetailComment_AddComment';
 export {
   HeaderMenuModal,
   Post,
@@ -90,4 +90,5 @@ export {
   PostDetailRightSide_HashTags,
   PostDetailRightSide_Footer,
   PostDetailComment_Comment,
+  PostDetailComment_AddComment,
 };

@@ -46,11 +46,15 @@ function PostDetailComment_Comment({ contents, isChild }) {
         <CommentFooter>
           <Footer_Date>{makeDate()}</Footer_Date>
           <Footer_Like>
-            <Poster src={contents?.liked ? liked : like} Style={iconStyle} />2
+            <Poster src={contents?.liked ? liked : like} Style={iconStyle} />
+            {contents?.likeSize}
           </Footer_Like>
-          <Footer_ChildCount>
-            <Poster src={comment} Style={iconStyle2} />2
-          </Footer_ChildCount>
+          {!isChild ? (
+            <Footer_ChildCount>
+              <Poster src={comment} Style={iconStyle2} />
+              {contents?.children?.length}
+            </Footer_ChildCount>
+          ) : null}
           <Footer_More>
             <Poster src={more} Style={iconStyle3} />
           </Footer_More>

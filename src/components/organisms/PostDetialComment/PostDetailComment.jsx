@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {
+  AddCommentContainer,
   CommentCount,
   CommentCountContainer,
   CommnetContainer,
@@ -8,7 +9,10 @@ import {
 import propTypes from 'prop-types';
 import { useEffect } from 'react';
 import { axios } from '../../../api';
-import { PostDetailComment_Comment } from '../../molecules';
+import {
+  PostDetailComment_AddComment,
+  PostDetailComment_Comment,
+} from '../../molecules';
 import { useCallback } from 'react';
 const dummyComment = [
   {
@@ -24,7 +28,7 @@ const dummyComment = [
         deleted: true,
         hasAuth: true,
         likeSize: 0,
-        liked: true,
+        liked: false,
         member: {
           memberId: 1,
           nickname: '똥글이',
@@ -42,7 +46,7 @@ const dummyComment = [
         deleted: true,
         hasAuth: true,
         likeSize: 0,
-        liked: true,
+        liked: false,
         member: {
           memberId: 2,
           nickname: '똥글이',
@@ -58,7 +62,7 @@ const dummyComment = [
     deleted: true,
     hasAuth: true,
     likeSize: 0,
-    liked: true,
+    liked: false,
     member: {
       memberId: 0,
       nickname: '똥글이',
@@ -76,7 +80,7 @@ const dummyComment = [
     deleted: true,
     hasAuth: true,
     likeSize: 0,
-    liked: true,
+    liked: false,
     member: {
       memberId: 3,
       nickname: '똥글이',
@@ -137,6 +141,9 @@ function PostDetailComment({ openComment, postId }) {
       <CommnetContainer>
         {recursiveComment(dummyComment, false)}
       </CommnetContainer>
+      <AddCommentContainer>
+        <PostDetailComment_AddComment />
+      </AddCommentContainer>
     </Container>
   );
 }
