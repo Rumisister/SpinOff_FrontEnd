@@ -5,12 +5,12 @@ body {
 html {
   overflow: hidden;
 }
-@media all and (min-width: 1500px) {
+@media all and (min-width: 1513px) {
   html {
     font-size: 100%;
   }
 }
-@media all and (min-width: 1024px) and (max-width: 1499px) {
+@media all and (min-width: 1024px) and (max-width: 1512px) {
   html {
     font-size: 78%;
   }

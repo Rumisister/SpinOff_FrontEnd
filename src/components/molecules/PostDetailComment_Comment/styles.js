@@ -5,7 +5,9 @@ const Container = styled.div`
   margin-left: ${props => (props?.isChild ? '2.5rem' : 0)};
   margin-bottom: 1.25rem;
 `;
-const CommentImageContainer = styled.div``;
+const CommentImageContainer = styled.div`
+  margin-right: 0.3125rem;
+`;
 const CommentContentContainer = styled.div``;
 const CommentUserNickName = styled.div`
   font-family: 'SUIT';
@@ -53,13 +55,38 @@ const Footer_ChildCount = styled.div`
   cursor: pointer;
 `;
 const Footer_More = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   cursor: pointer;
 `;
+const MoreMenuBar = styled.div`
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: ${props => (props?.show ? 'block' : 'none')};
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  width: 5rem;
+  border-radius: 0.3125rem;
+`;
+const MoreMenu = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: ${props => props?.borderRadius};
+  background: white;
+  font-size: 1.0625rem;
+  height: 2.125rem;
+  &:hover {
+    background: #f9cf00;
+    transition: 0.3s;
+  }
+`;
+const ProfileContainer = styled.div``;
 const imageStyle = {
   width: '2.5rem',
   height: '2.5rem',
+  borderRadius: '2.5rem',
 };
 const iconStyle = {
   width: '0.625rem',
@@ -91,4 +118,7 @@ export {
   iconStyle,
   iconStyle2,
   iconStyle3,
+  MoreMenuBar,
+  MoreMenu,
+  ProfileContainer,
 };

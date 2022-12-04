@@ -1,9 +1,16 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { TextArea } from '../../atoms';
-import { Container } from './styles';
-//import propTypes from 'prop-types';
-
-function PostDetailComment_AddComment() {
+import React, { useCallback, useState } from 'react';
+import { NormalButton, Poster, TextArea } from '../../atoms';
+import {
+  Container,
+  imgStyle,
+  normalButtonStyle,
+  TextAreaContainer,
+  textAreaStyle,
+} from './styles';
+import propTypes from 'prop-types';
+import defaultProfile from '../../../assets/images/baseProfile.png';
+function PostDetailComment_AddComment({ requestAddComment }) {
+  console.log(requestAddComment);
   const [comment, setComment] = useState('');
   const onChangeComment = useCallback(
     e => {
@@ -11,12 +18,31 @@ function PostDetailComment_AddComment() {
     },
     [comment],
   );
-  useEffect(() => console.log(comment), [comment]);
+  const requestAddComment_AndReqsetInput = useCallback(() => {
+    requestAddComment(comment);
+    setComment('');
+  }, [comment]);
   return (
     <Container>
-      <TextArea value={comment} onChange={onChangeComment} />
+      <Poster src={defaultProfile} Style={imgStyle} />
+      <TextAreaContainer>
+        <TextArea
+          value={comment}
+          onChange={onChangeComment}
+          Style={textAreaStyle}
+          placeholder={'댓글 달기...'}
+        />
+      </TextAreaContainer>
+      <NormalButton
+        Style={normalButtonStyle}
+        onClick={requestAddComment_AndReqsetInput}
+      >
+        완료
+      </NormalButton>
     </Container>
   );
 }
-//PostDetailComment_AddComment.propTypes = {};
+PostDetailComment_AddComment.propTypes = {
+  requestAddComment: propTypes.func,
+};
 export default React.memo(PostDetailComment_AddComment);

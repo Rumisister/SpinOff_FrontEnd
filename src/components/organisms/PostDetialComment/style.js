@@ -41,7 +41,7 @@ const CommnetContainer = styled.div`
   border-bottom: 0.0625rem solid #f9cf00;
 `;
 const AddCommentContainer = styled.div`
-  width: 23.5rem;
+  width: 100%;
   height: 3.1875rem;
   display: flex;
   align-items: center;
