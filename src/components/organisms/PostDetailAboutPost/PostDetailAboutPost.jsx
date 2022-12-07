@@ -14,7 +14,7 @@ function PostDetailAboutPost({ contents }) {
         contents={contents}
         setOpenComment={setOpenComment}
       />
-      <PostDetailComment openComment={openComment} />
+      <PostDetailComment openComment={openComment} postId={contents.postId} />
     </Container>
   );
 }

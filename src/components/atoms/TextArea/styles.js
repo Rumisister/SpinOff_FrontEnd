@@ -14,6 +14,7 @@ const TextInput = styled.textarea`
   border: ${props => props?.Style?.border};
   width: ${props => props?.Style?.width};
   height: ${props => props?.Style?.height};
+  flex: ${props => props?.Style.flex || null};
   &:focus + span {
     transform: ${props => props?.Style?.focused?.transform};
     font-size: ${props => props?.Style?.focused?.fontSize};
@@ -24,6 +25,7 @@ const TextInput = styled.textarea`
     opacity: ${props => props?.Style?.placeholder?.opacity || '1'};
     color: ${props => props?.Style?.placeholder?.color || 'black'};
     font-weight: ${props => props?.Style?.placeholder?.fontWeight || 'normal'};
+    font-size: ${props => props?.Style?.placeholder?.fontSize || '16px'};
   }
 `;
 

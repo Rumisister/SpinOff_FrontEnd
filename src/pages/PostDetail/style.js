@@ -5,6 +5,8 @@ const Container = styled.div`
   height: calc(100% - 149px);
   margin-top: 149px;
   overflow: auto;
+  padding-bottom: 200px;
+  box-sizing: border-box;
 `;
 
 export { Container };

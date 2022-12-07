@@ -3,15 +3,13 @@ import styled from 'styled-components';
 const Container = styled.div`
   position: relative;
   display: flex;
-  margin-top: 70px;
-  width: 57%;
-  min-width: 590px;
-  margin-left: max(21.5%, 205px);
-  height: 700px;
-  box-shadow: 0px 4px 10px 10px rgba(0, 0, 0, 0.25);
-  border-radius: 20px;
+  margin: 4.375rem auto 0 auto;
+  width: 65.375rem;
+  height: 54.6875rem;
+  box-shadow: 0rem 0.25rem 0.625rem 0.625rem rgba(0, 0, 0, 0.25);
+  border-radius: 1.25rem;
   transform: ${props => props?.active && 'translateX(-25%)'};
-  transition: 1s;
+  transition: 0.3s;
 `;
 
 export { Container };
