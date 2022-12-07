@@ -1,10 +1,13 @@
 import React, { useCallback, useRef, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import {
   MyPageCollection,
   MyPageCuration,
   MyPageInfo,
 } from '../../components/organisms';
+import { offSearchBar, onSearchBar } from '../../store/NeedSearchBar/action';
 import {
   CollectionButton,
   Container,
@@ -20,11 +23,18 @@ function MyPage() {
   const rootRef = useRef(null);
   const targetRef = useRef(null);
   const ref = useRef({ rootRef, targetRef });
+  const dispatch = useDispatch();
   const ToggleContentType = useCallback(() => {
     setContentType(prev => {
       if (prev === 'curation') return 'collection';
       else return 'curation';
     });
+  }, []);
+  useEffect(() => {
+    dispatch(offSearchBar());
+    return () => {
+      dispatch(onSearchBar());
+    };
   }, []);
   return (
     <Container ref={rootRef}>
