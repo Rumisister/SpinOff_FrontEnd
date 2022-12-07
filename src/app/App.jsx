@@ -18,9 +18,11 @@ import {
 
 function App() {
   const isSignIn = useSelector(state => state.authReducer.isSignIn);
+  const needSearchBar = useSelector(state => state.needSearchBarReducer);
+
   return (
     <BrowserRouter>
-      <Header isSignIn={isSignIn} />
+      <Header isSignIn={isSignIn} needSearchBar={needSearchBar} />
       <Routes>
         <Route exact path="/" element={<MainPage />} />
         <Route path="/SignInLoading/naver" element={<SignInLoadingNaver />} />
