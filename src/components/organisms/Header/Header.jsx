@@ -2,8 +2,10 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { Container } from './styles';
 import { HeaderBar, SearchBar } from '..';
+import { useSelector } from 'react-redux';
 
-function Header({ isSignIn, needSearchBar }) {
+function Header({ isSignIn }) {
+  const needSearchBar = useSelector(state => state.needSearchBarReducer);
   return (
     <Container>
       <HeaderBar isSignIn={isSignIn} />
@@ -14,6 +16,5 @@ function Header({ isSignIn, needSearchBar }) {
 
 Header.propTypes = {
   isSignIn: propTypes.bool,
-  needSearchBar: propTypes.bool,
 };
 export default Header;
