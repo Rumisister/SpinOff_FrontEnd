@@ -20,8 +20,8 @@ import {
   MoreMenuBar,
   ProfileContainer,
 } from './styles';
-import like from '../../../assets/images/like.png';
-import liked from '../../../assets/images/liked.png';
+import likeIcon from '../../../assets/images/like.png';
+import likedIcon from '../../../assets/images/liked.png';
 import comment from '../../../assets/images/comment.png';
 import more from '../../../assets/images/more.png';
 import defaultProfile from '../../../assets/images/baseProfile.png';
@@ -31,6 +31,8 @@ import { useRef } from 'react';
 
 function PostDetailComment_Comment({ contents, isChild }) {
   const [showMoreMenuBar, setShowMoreMenuBar] = useState(false);
+  const [like, setLike] = useState(contents?.liked);
+  const debouncer = useRef(null);
   const fotterEl = useRef(null);
   const moreButtonEl = useRef(null);
   const makeDate = useCallback(() => {
@@ -45,21 +47,38 @@ function PostDetailComment_Comment({ contents, isChild }) {
     if (day.length === 1) day = '0' + day;
     return `${year.slice(2)}.${month}.${day}`;
   }, [contents]);
-  const handleClickOutwSide = useCallback(
-    e => {
+  const handleClickOutSide = useCallback(e => {
+    setShowMoreMenuBar(prev => {
       if (
-        (showMoreMenuBar && !fotterEl.current.contains(e.target)) ||
-        !(moreButtonEl.current === e.target)
+        prev &&
+        !fotterEl.current.contains(e.target) &&
+        !moreButtonEl.current.contains(e.target)
       )
-        setShowMoreMenuBar(prev => {
-          if (prev) return !prev;
-          return prev;
-        });
-    },
-    [showMoreMenuBar],
-  );
-  console.log(handleClickOutwSide);
-  useEffect(() => {}, [showMoreMenuBar]);
+        return !prev;
+      return prev;
+    });
+  }, []);
+  useEffect(() => {
+    window.addEventListener('click', handleClickOutSide);
+    return () => {
+      window.removeEventListener('click', handleClickOutSide);
+    };
+  }, [showMoreMenuBar]);
+  const toggleLikeState = useCallback(() => {
+    setLike(prev => !prev);
+    debouncer.current = setTimeout(() => {}, 200);
+  }, []);
+  // const requestLike = useCallback(() => {
+  //   try {
+  //     const res = await axios({
+  //       method: 'post',
+  //       url: `/api/post/comment/${contents?.commentId}/like`,
+  //     });
+  //     requestComment();
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }, []);
   return (
     <Container isChild={isChild}>
       <CommentImageContainer>
@@ -73,8 +92,8 @@ function PostDetailComment_Comment({ contents, isChild }) {
         <CommentMessage>{contents.content}</CommentMessage>
         <CommentFooter>
           <Footer_Date>{makeDate()}</Footer_Date>
-          <Footer_Like>
-            <Poster src={contents?.liked ? liked : like} Style={iconStyle} />
+          <Footer_Like onClick={toggleLikeState}>
+            <Poster src={like ? likedIcon : likeIcon} Style={iconStyle} />
             {contents?.likeSize}
           </Footer_Like>
           {!isChild ? (
@@ -88,8 +107,6 @@ function PostDetailComment_Comment({ contents, isChild }) {
               ref={moreButtonEl}
               onClick={() => {
                 setShowMoreMenuBar(prev => {
-                  console.log(prev);
-                  console.log('이미지 프리뷰@');
                   return !prev;
                 });
               }}
