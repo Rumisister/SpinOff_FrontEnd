@@ -31,7 +31,7 @@ function MyPageInfo({ member_id }) {
   return (
     <Container>
       <InfoContainer>
-        <MyPageInfoPoster profileUrl={info.profileUrl} />
+        <MyPageInfoPoster info={info} />
         <MyPageInfoAbout info={info} />
       </InfoContainer>
     </Container>

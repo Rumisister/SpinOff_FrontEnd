@@ -10,8 +10,8 @@ const Container = styled.div`
 `;
 
 const PosterContainer = styled.div`
-  width: 200px;
-  height: 200px;
+  width: 12.5rem;
+  height: 12.5rem;
   margin: 0 auto;
   border-radius: 50%;
   background-image: url(${props => props?.profileUrl || baseProfile});
@@ -26,9 +26,34 @@ const ModifyProfile = styled.div`
   align-items: flex-end;
 `;
 
-const textButtonStyle = {
+const profileModify = {
   color: '#F9CF00',
   textDecoration: 'underline',
+  backgroundColor: '#F24860',
 };
 
-export { Container, PosterContainer, ModifyProfile, textButtonStyle };
+const follow = {
+  color: 'white',
+  background: '#F24860',
+  borderRadius: '3.125rem',
+  width: '6.5rem',
+  height: '3.125rem',
+  fontSize: '1.5625rem',
+  fontWeight: 'bold',
+};
+const following = {
+  color: '#FFFFFF',
+  backgroundColor: '#F24860',
+  borderRadius: '3.125rem',
+  width: '6.25rem',
+  height: '2.5rem',
+};
+
+export {
+  Container,
+  PosterContainer,
+  ModifyProfile,
+  profileModify,
+  follow,
+  following,
+};
