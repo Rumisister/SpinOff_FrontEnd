@@ -4,6 +4,8 @@ import Button from './styles';
 
 function TextButton({ onClick, type, Style, children, someProp }) {
   //console.log(onClick);
+  console.log(Style);
+  console.log('버튼 @@');
   return (
     <Button Style={Style} onClick={onClick} type={type} someProp={someProp}>
       {children}

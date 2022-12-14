@@ -14,6 +14,9 @@ import { useSelector } from 'react-redux';
 
 function MyPageInfoPoster({ info }) {
   const loginId = useSelector(state => state.authReducer.member_id);
+  console.log('왜안돼');
+  console.log(info.id);
+  console.log(loginId);
   const registProfileOrFollowInfo = useMemo(() => {
     return info.id === loginId
       ? '프로필 수정'
@@ -21,6 +24,9 @@ function MyPageInfoPoster({ info }) {
       ? '팔로잉'
       : '팔로우';
   }, [info, loginId]);
+  console.log(registProfileOrFollowInfo);
+  console.log(follow);
+  console.log(following);
   return (
     <Container>
       <PosterContainer profileUrl={info.profileUrl}></PosterContainer>
@@ -31,7 +37,7 @@ function MyPageInfoPoster({ info }) {
           </NormalButton>
         ) : (
           <TextButton
-            style={
+            Style={
               registProfileOrFollowInfo === '팔로잉' ? following : profileModify
             }
           >
