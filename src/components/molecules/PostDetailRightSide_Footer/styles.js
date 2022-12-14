@@ -20,20 +20,20 @@ const LikeCommentContainer = styled.div`
 `;
 const Like = styled.div`
   font-weight: 600;
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #888888;
-  margin-right: 10px;
+  margin-right: 0.625rem;
   cursor: pointer;
 `;
 const Comment = styled.div`
   font-weight: 600;
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #888888;
   cursor: pointer;
 `;
 const CommentMore = styled.div`
   font-weight: 700;
-  font-size: 15px;
+  font-size: 0.9375rem;
   color: #585858;
   margin-left: auto;
   cursor: pointer;
@@ -43,33 +43,33 @@ const CuratorContainer = styled.div`
   display: flex;
   align-items: center;
   font-weight: 700;
-  font-size: 20px;
-  line-height: 25px;
+  font-size: 1.25rem;
+  line-height: 1.5625rem;
   width: 100%;
 `;
 
 const imgStyle = {
-  width: '50px',
-  height: '50px',
-  borderRadius: '50px',
-  margin: '0 5px 0 0',
+  width: '3.125rem',
+  height: '3.125rem',
+  borderRadius: '3.125rem',
+  margin: '0 .3125rem 0 0',
 };
 const imgStyle2 = {
-  widht: '10px',
-  height: '10px',
-  margin: '0 5px 0 0',
+  widht: '.625rem',
+  height: '.625rem',
+  margin: '0 .3125rem 0 0',
 };
 const imgStyle3 = {
-  widht: '12px',
-  height: '12px',
-  margin: '0 0 0 5px',
+  widht: '.75rem',
+  height: '.75rem',
+  margin: '0 0 0 .3125rem',
 };
 const commonButtonStyle = {
   margin: '0 0 0 auto',
-  borderRadius: '15px',
-  fontSize: '16px',
+  borderRadius: '.9375rem',
+  fontSize: '1rem',
   fontWeight: 'bold',
-  padding: '5px 10px',
+  padding: '.3125rem .625rem',
 };
 const buttonStyle = {
   ...commonButtonStyle,

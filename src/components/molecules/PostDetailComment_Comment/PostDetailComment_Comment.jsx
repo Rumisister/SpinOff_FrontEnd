@@ -28,10 +28,16 @@ import defaultProfile from '../../../assets/images/baseProfile.png';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useRef } from 'react';
+import { axios } from '../../../api';
 
-function PostDetailComment_Comment({ contents, isChild }) {
+function PostDetailComment_Comment({
+  contents,
+  isChild,
+  requestDeleteComment,
+}) {
   const [showMoreMenuBar, setShowMoreMenuBar] = useState(false);
   const [like, setLike] = useState(contents?.liked);
+  const [likeSize, setLikeSize] = useState(contents?.likeSize || 0);
   const debouncer = useRef(null);
   const fotterEl = useRef(null);
   const moreButtonEl = useRef(null);
@@ -45,7 +51,7 @@ function PostDetailComment_Comment({ contents, isChild }) {
     day = day?.trim();
     if (month.length === 1) month = '0' + month;
     if (day.length === 1) day = '0' + day;
-    return `${year.slice(2)}.${month}.${day}`;
+    return `${year?.slice(2) || ''}.${month || ''}.${day || ''}`;
   }, [contents]);
   const handleClickOutSide = useCallback(e => {
     setShowMoreMenuBar(prev => {
@@ -64,21 +70,41 @@ function PostDetailComment_Comment({ contents, isChild }) {
       window.removeEventListener('click', handleClickOutSide);
     };
   }, [showMoreMenuBar]);
+  const requestLike = useCallback(async () => {
+    try {
+      const res = await axios({
+        method: like ? 'delete' : 'post',
+        url: `/api/post/comment/${contents?.commentId}/like`,
+      });
+      console.log(res);
+    } catch (error) {
+      alert('몇초 후 다시 시도하여 주세요!');
+      setLike(prev => {
+        if (prev) {
+          setLikeSize(prev => prev - 1);
+          return !prev;
+        } else {
+          setLikeSize(prev => prev + 1);
+          return !prev;
+        }
+      });
+      console.log(error);
+    }
+  }, [like]);
   const toggleLikeState = useCallback(() => {
-    setLike(prev => !prev);
-    debouncer.current = setTimeout(() => {}, 200);
-  }, []);
-  // const requestLike = useCallback(() => {
-  //   try {
-  //     const res = await axios({
-  //       method: 'post',
-  //       url: `/api/post/comment/${contents?.commentId}/like`,
-  //     });
-  //     requestComment();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
+    setLike(prev => {
+      if (prev) {
+        setLikeSize(prev => prev - 1);
+        return !prev;
+      } else {
+        setLikeSize(prev => prev + 1);
+        return !prev;
+      }
+    });
+    debouncer.current = setTimeout(() => {
+      requestLike();
+    }, 200);
+  }, [requestLike]);
   return (
     <Container isChild={isChild}>
       <CommentImageContainer>
@@ -94,7 +120,7 @@ function PostDetailComment_Comment({ contents, isChild }) {
           <Footer_Date>{makeDate()}</Footer_Date>
           <Footer_Like onClick={toggleLikeState}>
             <Poster src={like ? likedIcon : likeIcon} Style={iconStyle} />
-            {contents?.likeSize}
+            {likeSize}
           </Footer_Like>
           {!isChild ? (
             <Footer_ChildCount>
@@ -115,7 +141,12 @@ function PostDetailComment_Comment({ contents, isChild }) {
             </ProfileContainer>
             <MoreMenuBar show={showMoreMenuBar} ref={fotterEl}>
               {contents?.hasAuth ? (
-                <MoreMenu borderRadius={'5px 5px 0px 0px;'}>삭제</MoreMenu>
+                <MoreMenu
+                  borderRadius={'5px 5px 0px 0px;'}
+                  onClick={() => requestDeleteComment(contents?.commentId)}
+                >
+                  삭제
+                </MoreMenu>
               ) : null}
               <MoreMenu
                 borderRadius={contents?.hasAuth ? '0px 0px 5px 5px;' : '5px'}
@@ -133,6 +164,7 @@ function PostDetailComment_Comment({ contents, isChild }) {
 PostDetailComment_Comment.propTypes = {
   contents: propTypes.object,
   isChild: propTypes.bool,
+  requestDeleteComment: propTypes.func,
 };
 
 export default React.memo(PostDetailComment_Comment);

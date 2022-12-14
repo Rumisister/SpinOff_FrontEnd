@@ -7,7 +7,7 @@ const Container = styled.div`
   width: 100%;
   height: 82%;
   overflow: hidden;
-  border-top-left-radius: 20px;
+  border-top-left-radius: 1.25rem;
 `;
 
 const PosterListContainer = styled.div`
@@ -21,18 +21,18 @@ const PosterListContainer = styled.div`
 
 const LeftScroll = styled(leftScroll)`
   position: absolute;
-  top: calc(50% - 15px);
-  left: 10px;
-  width: 30px;
-  height: 30px;
+  top: calc(50% - 0.9375rem);
+  left: 0.625rem;
+  width: 1.875rem;
+  height: 1.875rem;
   cursor: pointer;
 `;
 const RightScroll = styled(rightScroll)`
   position: absolute;
-  top: calc(50% - 15px);
-  right: 10px;
-  width: 30px;
-  height: 30px;
+  top: calc(50% - 0.9375rem);
+  right: 0.625rem;
+  width: 1.875rem;
+  height: 1.875rem;
   cursor: pointer;
 `;
 
@@ -45,7 +45,7 @@ const ImageContainer = styled.div`
 
 const IndicatorContainer = styled.div`
   position: absolute;
-  bottom: 10px;
+  bottom: 0.625rem;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -57,13 +57,13 @@ const Indicator = styled.div`
 `;
 
 const Dot = styled.span`
-  width: 10px;
-  height: 10px;
-  margin: 0 10px;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin: 0 0.625rem;
   border-radius: 50%;
   background: ${props => (props?.selected ? 'white' : '#F24860')};
   box-shadow: ${props =>
-    props?.selected ? '2px 2px 4px rgba(0, 0, 0, 0.5)' : ''};
+    props?.selected ? '.125rem .125rem .25rem rgba(0, 0, 0, 0.5)' : ''};
   cursor: pointer;
 `;
 
@@ -72,7 +72,7 @@ const imageStyle = {
   height: '100%',
   objectFit: 'cover',
   borderRadius: '0',
-  textIndent: '-9999px',
+  textIndent: '-624.9375rem',
 };
 export {
   Container,

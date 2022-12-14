@@ -20,9 +20,9 @@ const TagContainer = styled.div`
 
 const More = styled(more)`
   position: absolute;
-  height: 16px;
-  width: 16px;
-  top: calc(50% - 8px);
+  height: 1rem;
+  width: 1rem;
+  top: calc(50% - 0.5rem);
   transform: ${props => (props.isHidden ? 'rotate(180deg)' : '')};
   right: 0;
   cursor: pointer;
@@ -30,9 +30,9 @@ const More = styled(more)`
 
 const ButtonContainer = styled.div`
   position: relative;
-  margin: 10px 0;
-  margin-right: 5px;
-  border-radius: 20px;
+  margin: 0.625rem 0;
+  margin-right: 0.3125rem;
+  border-radius: 1.25rem;
   &:hover div {
     visibility: visible;
     opacity: 1;
@@ -45,7 +45,7 @@ const ButtonHover = styled.div`
   justify-content: center;
   position: absolute;
   visibility: hidden;
-  border-radius: 20px;
+  border-radius: 1.25rem;
   top: 0;
   left: 0;
   width: 100%;
@@ -59,8 +59,8 @@ const DeleteIcon = styled(del)`
   cursor: pointer;
 `;
 const normalButtonStyle = {
-  padding: '5px 10px',
-  borderRadius: '20px',
+  padding: '.3125rem .625rem',
+  borderRadius: '1.25rem',
   background: 'transparent',
   fontWeight: 'bold',
 };

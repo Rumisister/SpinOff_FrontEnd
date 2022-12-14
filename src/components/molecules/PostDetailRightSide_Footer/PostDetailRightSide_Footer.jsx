@@ -31,7 +31,9 @@ function PostDetailRightSide_Footer({ contents, setOpenComment }) {
             src={contents?.member?.profile || defaultProfile}
             Style={imgStyle}
           />
-          {`${contents?.member?.nickname}(@${contents?.member?.accountId})`}
+          {`${contents?.member?.nickname || ''}(@${
+            contents?.member?.accountId || ''
+          })`}
           <NormalButton
             Style={contents.member?.followed ? buttonStyle2 : buttonStyle}
           >
@@ -45,7 +47,7 @@ function PostDetailRightSide_Footer({ contents, setOpenComment }) {
             src={contents?.liked ? likedIcon : likeIcon}
             Style={imgStyle2}
           />
-          {contents?.likedSize}
+          {contents?.likedSize || 0}
         </Like>
         <Comment>
           <Poster src={commentIcon} Style={imgStyle2} />

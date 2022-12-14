@@ -13,20 +13,20 @@ const ContentContainer = styled.div`
   height: 100%;
   width: 100%;
   overflow: auto;
-  margin-bottom: 40px;
+  margin-bottom: 2.5rem;
   &::-webkit-scrollbar {
-    width: 7px;
+    width: 0.4375rem;
   }
   &::-webkit-scrollbar-thumb {
-    border-radius: 10px;
+    border-radius: 0.625rem;
     background: #f9cf00;
   }
 `;
 const Content = styled.div`
-  padding: 10px;
+  padding: 0.625rem;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 35px;
+  font-size: 1rem;
+  line-height: 2.1875rem;
   box-sizing: border-box;
 `;
 
@@ -39,8 +39,8 @@ const DateContainer = styled.div`
 const Date = styled.div`
   color: #6c6767;
   font-weight: 600;
-  font-size: 15px;
-  line-height: 19px;
+  font-size: 0.9375rem;
+  line-height: 1.1875rem;
 `;
 const IconContainer = styled.div`
   margin-left: auto;
@@ -50,7 +50,7 @@ const ExternalLink = styled(externalLink)`
   cursor: pointer;
 `;
 const ShareDM = styled(shareDM)`
-  margin-right: 10px;
+  margin-right: 0.625rem;
   cursor: pointer;
 `;
 

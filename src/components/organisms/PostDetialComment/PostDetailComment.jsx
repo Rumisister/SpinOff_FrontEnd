@@ -63,22 +63,22 @@ function PostDetailComment({ openComment, postId }) {
     },
     [postId],
   );
-  // const requestDeleteComment = useCallback(async () => {
-  //   try {
-  //     const res = await axios({
-  //       method: 'post',
-  //       url: `/api/post/${postId}/comment`,
-  //       data: {
-  //         content,
-  //         parnetId: null,
-  //       },
-  //     });
-  //     console.log(res);
-  //     requestComment();
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // }, []);
+  const requestDeleteComment = useCallback(
+    async commentId => {
+      try {
+        const res = await axios({
+          method: 'delete',
+          url: `/api/post/comment/${commentId}`,
+        });
+        console.log(res);
+        console.log(postId);
+        requestComment();
+      } catch (error) {
+        console.log(error);
+      }
+    },
+    [requestComment],
+  );
   useEffect(() => {
     componentMounted.current = true;
     if (openComment) requestComment();
@@ -86,22 +86,26 @@ function PostDetailComment({ openComment, postId }) {
       componentMounted.current = false;
     };
   }, [openComment]);
-  const recursiveComment = useCallback((comment, isChild) => {
-    return comment?.map(content => {
-      return (
-        <>
-          <PostDetailComment_Comment
-            key={content.commentId}
-            isChild={isChild}
-            contents={content}
-          />
-          {content.children.length > 0
-            ? recursiveComment(content.children, true)
-            : null}
-        </>
-      );
-    });
-  }, []);
+  const recursiveComment = useCallback(
+    (comment, isChild) => {
+      return comment?.map(content => {
+        return (
+          <>
+            <PostDetailComment_Comment
+              key={content.commentId}
+              isChild={isChild}
+              contents={content}
+              requestDeleteComment={requestDeleteComment}
+            />
+            {content.children.length > 0
+              ? recursiveComment(content.children, true)
+              : null}
+          </>
+        );
+      });
+    },
+    [requestDeleteComment],
+  );
   return (
     <Container active={openComment}>
       <CommentCountContainer>

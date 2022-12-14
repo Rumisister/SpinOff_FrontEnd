@@ -6,10 +6,10 @@ const Container = styled.div`
   flex: 1;
   height: 100%;
   background: white;
-  border-top-right-radius: 20px;
-  border-bottom-right-radius: 20px;
+  border-top-right-radius: 1.25rem;
+  border-bottom-right-radius: 1.25rem;
   box-sizing: border-box;
-  padding: 20px;
+  padding: 1.25rem;
 `;
 
 export { Container };
