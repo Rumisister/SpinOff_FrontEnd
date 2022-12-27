@@ -14,6 +14,7 @@ import {
   SignInLoadingGoogle,
   SignInLoadingKakao,
   SignInLoadingNaver,
+  ModifyMyProfile,
 } from '../pages';
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path="/member" element={<SearchCurator />} />
         <Route path="/movie" element={<SearchMovie />} />
         <Route path="/PostDetail" element={<PostDetail />} />
+        <Route path="/ModifyMyProfile" element={<ModifyMyProfile />} />
       </Routes>
       <Footer />
     </BrowserRouter>
