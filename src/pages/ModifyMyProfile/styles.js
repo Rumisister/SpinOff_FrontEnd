@@ -65,7 +65,6 @@ const PosterContainer = styled.div`
 const TitleContainer = styled.div``;
 
 const TitleBox = styled.div`
-  /* width: 300px; */
   display: flex;
   flex-direction: row;
   align-items: center;
