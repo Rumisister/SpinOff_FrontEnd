@@ -1,6 +1,7 @@
 import React, { useMemo } from 'react';
 import propTypes from 'prop-types';
 import { NormalButton, TextButton } from '../../atoms';
+import { useNavigate } from 'react-router-dom';
 
 import {
   Container,
@@ -13,10 +14,9 @@ import {
 import { useSelector } from 'react-redux';
 
 function MyPageInfoPoster({ info }) {
+  console.log('info', info);
+  const history = useNavigate();
   const loginId = useSelector(state => state.authReducer.member_id);
-  console.log('왜안돼');
-  console.log(info.id);
-  console.log(loginId);
   const registProfileOrFollowInfo = useMemo(() => {
     return info.id === loginId
       ? '프로필 수정'
@@ -24,9 +24,11 @@ function MyPageInfoPoster({ info }) {
       ? '팔로잉'
       : '팔로우';
   }, [info, loginId]);
-  console.log(registProfileOrFollowInfo);
-  console.log(follow);
-  console.log(following);
+
+  const goToModifyProfile = () => {
+    history(`/ModifyMyProfile`);
+  };
+
   return (
     <Container>
       <PosterContainer profileUrl={info.profileUrl}></PosterContainer>
@@ -37,6 +39,7 @@ function MyPageInfoPoster({ info }) {
           </NormalButton>
         ) : (
           <TextButton
+            onClick={goToModifyProfile}
             Style={
               registProfileOrFollowInfo === '팔로잉' ? following : profileModify
             }

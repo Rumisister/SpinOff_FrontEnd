@@ -8,6 +8,7 @@ import SearchCollection from './SearchCollection';
 import SearchCurator from './SearchCurator';
 import SearchMovie from './SearchMovie';
 import PostDetail from './PostDetail';
+import ModifyMyProfile from './ModifyMyProfile';
 
 export {
   MainPage,
@@ -20,4 +21,5 @@ export {
   SearchCurator,
   SearchMovie,
   PostDetail,
+  ModifyMyProfile,
 };
