@@ -5,28 +5,29 @@ const Container = styled.div`
   margin-top: 149px;
   display: flex;
   flex-direction: row;
+  width: '100%';
 `;
 
 const ContainerLeft = styled.div`
-  background-color: aliceblue;
-  width: 315px;
-  overflow: auto;
-  justify-content: center;
-  align-items: center;
+  border: solid 1px gray;
+  width: 250px;
+  /* justify-content: center;
+  align-items: center; */
 `;
 
-const ProfileHeader = styled.button`
-  font-size: 30px;
-  margin-top: '40%';
-  color: '#f9cf00';
-  width: 317px;
+const TextButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  margin-left: 50px;
+  align-items: flex-start;
 `;
 
-const OffModifyButton = styled.button`
+const ModifyButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  color: rgba(249, 207, 0, 1);
+  color: rgb(249, 207, 0);
   margin-top: 30px;
   font-size: 30px;
   border: none;
@@ -34,40 +35,78 @@ const OffModifyButton = styled.button`
 `;
 
 const ContainerRight = styled.div`
-  background-color: yellowgreen;
-  width: 1288px;
+  /* background-color: yellowgreen; */
+  width: 1200px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 100px;
+  /* flex-direction: column; */
 `;
 
+const ProfileContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
+const PosterContainer = styled.div`
+  /* position: absolute;
+  top: 250px;
+  left: 350px; */
+  width: 13.5rem;
+  height: 13.5rem;
+  /* margin: 0 auto; */
+  border-radius: 50%;
+  background-color: tomato;
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
+
+const TitleContainer = styled.div``;
+
 const TitleBox = styled.div`
-  width: 760px;
+  /* width: 300px; */
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
+  /* margin-left: 100px; */
 `;
 
 const Title = styled.div`
-  font-size: 25px;
+  font-size: 20px;
   font-family: 'SUIT';
 `;
 
 const InputBox = styled.input`
-  border-color: rgba(249, 207, 0, 1);
-  width: 620px;
+  border-color: rgb(249, 207, 0);
+  width: 500px;
   height: 50px;
   border-radius: 40px;
-  font-size: 25px;
+  font-size: 20px;
   padding-left: 15px;
+  margin-left: 30px;
 `;
+
+const textButtonStyle = {
+  fontSize: '20px',
+  fontFamily: 'SUIT',
+  color: 'rgb(249, 207, 0)',
+  margin: '20px',
+};
 
 export {
   ContainerLeft,
-  ProfileHeader,
-  OffModifyButton,
+  textButtonStyle,
+  ModifyButton,
   ContainerRight,
   Container,
   Title,
   InputBox,
   TitleBox,
+  PosterContainer,
+  ProfileContainer,
+  TitleContainer,
+  TextButtonContainer,
 };

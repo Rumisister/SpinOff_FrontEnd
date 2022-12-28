@@ -14,6 +14,7 @@ import {
 import { useSelector } from 'react-redux';
 
 function MyPageInfoPoster({ info }) {
+  console.log('info', info);
   const history = useNavigate();
   const loginId = useSelector(state => state.authReducer.member_id);
   const registProfileOrFollowInfo = useMemo(() => {
@@ -25,7 +26,6 @@ function MyPageInfoPoster({ info }) {
   }, [info, loginId]);
 
   const goToModifyProfile = () => {
-    console.log('프로필수정으로');
     history(`/ModifyMyProfile`);
   };
 
