@@ -14,6 +14,9 @@ import {
   textButtonStyle,
   TitleContainer,
   TextButtonContainer,
+  ProfileTop,
+  ProfileBottom,
+  InputBox2,
 } from './styles';
 
 function ModifyMyProfile() {
@@ -68,31 +71,33 @@ function ModifyMyProfile() {
         </TextButtonContainer>
       </ContainerLeft>
       <ContainerRight>
-        {/* <ProfileContainer> */}
         {profile && (
           <>
-            <PosterContainer></PosterContainer>
-            <TitleContainer>
-              <TitleBox>
-                <Title>닉네임</Title>
-                <InputBox placeholder="최소 2글자 ~ 최대 8자"></InputBox>
+            <ProfileTop>
+              <PosterContainer></PosterContainer>
+              <TitleContainer>
+                <TitleBox>
+                  <Title>닉네임</Title>
+                  <InputBox placeholder="최소 2글자 ~ 최대 8자"></InputBox>
+                </TitleBox>
+                <TitleBox>
+                  <Title>아이디</Title>
+                  <InputBox></InputBox>
+                </TitleBox>
+                <TitleBox>
+                  <Title>웹사이트</Title>
+                  <InputBox></InputBox>
+                </TitleBox>
+              </TitleContainer>
+            </ProfileTop>
+            <ProfileBottom>
+              <TitleBox Box>
+                <Title bottom>프로필소개</Title>
+                <InputBox2 placeholder="나를 소개할 수 있는 프로필 메세지를 작성해주세요."></InputBox2>
               </TitleBox>
-              <TitleBox>
-                <Title>아이디</Title>
-                <InputBox></InputBox>
-              </TitleBox>
-              <TitleBox>
-                <Title>웹사이트</Title>
-                <InputBox></InputBox>
-              </TitleBox>
-            </TitleContainer>
-            <TitleBox>
-              <Title>프로필소개</Title>
-              <InputBox></InputBox>
-            </TitleBox>
+            </ProfileBottom>
           </>
         )}
-        {/* </ProfileContainer> */}
       </ContainerRight>
     </Container>
   );

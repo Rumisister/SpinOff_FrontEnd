@@ -35,13 +35,11 @@ const ModifyButton = styled.button`
 `;
 
 const ContainerRight = styled.div`
-  /* background-color: yellowgreen; */
-  width: 1200px;
+  width: 900px;
   display: flex;
   justify-content: center;
-  flex-direction: row;
-  margin-top: 100px;
-  /* flex-direction: column; */
+  flex-direction: column;
+  margin-left: 60px;
 `;
 
 const ProfileContainer = styled.div`
@@ -50,32 +48,51 @@ const ProfileContainer = styled.div`
 `;
 
 const PosterContainer = styled.div`
-  /* position: absolute;
-  top: 250px;
-  left: 350px; */
-  width: 13.5rem;
-  height: 13.5rem;
-  /* margin: 0 auto; */
+  width: 14.5rem;
+  height: 14.5rem;
   border-radius: 50%;
   background-color: tomato;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
-const TitleContainer = styled.div``;
+const ProfileTop = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* border: solid 1px orange; */
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ProfileBottom = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 30px;
+  /* border: solid 1px pink; */
+`;
+
+const TitleContainer = styled.div`
+  /* border: solid 1px blue; */
+  align-items: center;
+  justify-content: center;
+`;
 
 const TitleBox = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: ${props => (props?.Box ? 'column' : 'row')};
   justify-content: space-between;
+  align-items: ${props => (props?.Box ? 'flex-start' : 'center')};
   margin-bottom: 25px;
-  /* margin-left: 100px; */
 `;
 
 const Title = styled.div`
   font-size: 20px;
   font-family: 'SUIT';
+  font-weight: 700;
+  margin-bottom: ${props => (props?.bottom ? '10px' : '0')};
 `;
 
 const InputBox = styled.input`
@@ -86,6 +103,17 @@ const InputBox = styled.input`
   font-size: 20px;
   padding-left: 15px;
   margin-left: 30px;
+`;
+
+const InputBox2 = styled.textarea`
+  border-color: rgb(249, 207, 0);
+  width: 800px;
+  height: 130px;
+  border-radius: 25px;
+  font-size: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+  vertical-align: top;
 `;
 
 const textButtonStyle = {
@@ -108,4 +136,7 @@ export {
   ProfileContainer,
   TitleContainer,
   TextButtonContainer,
+  ProfileTop,
+  ProfileBottom,
+  InputBox2,
 };
